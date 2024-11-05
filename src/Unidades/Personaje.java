@@ -61,6 +61,7 @@ public abstract class Personaje implements Combatiente{
             i++;
         }
     }
+	
 	public void bajarTurnosEfectos() {
         for(Efecto e:efectos)
             e.bajarTurno();

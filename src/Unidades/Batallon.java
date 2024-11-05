@@ -7,6 +7,14 @@ public class Batallon implements Combatiente {
 	private List<Combatiente> combatientes;
 	private List<Personaje> personajesVivos;
 	
+	Batallon(){
+		this.combatientes = new ArrayList<Combatiente>();
+		this.personajesVivos = new ArrayList<Personaje>();
+	}
+	Batallon(List<Combatiente> combatientes){
+		this.combatientes = combatientes;
+	}
+	
 	public void agregarCombatiente(Combatiente combatiente) {
 		combatientes.add(combatiente);
 	}
