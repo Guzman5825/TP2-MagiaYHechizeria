@@ -13,18 +13,15 @@ public abstract class HechizoBase {
 	
 	
 	String getNombre() {
-		//implementar
-		return "";
+		return this.nombre;
 	}
 	
 	int getCostoMana() {
-		//implementar
-		return 1;
+		return this.costeMana;
 	}
 	
 	int getDañoBase() {
-		//implementar
-		return 1;
+		return this.dañoBase;
 	}
 	
 	abstract void ejecutar();
