@@ -3,11 +3,13 @@ package Unidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import Efectos.Efecto;
+
 public abstract class Personaje implements Combatiente{
 	final private String nombre, clase, rango;
 	final private int vidaMax, manaMax;
 	private int vida, mana;
-	//private List<Estado> estados;
+	private List<Efecto> efectos;
 	//Constructor
 	protected Personaje(String nombre, int vida, int mana, String clase, String rango) {
 		this.nombre = nombre;
@@ -15,7 +17,7 @@ public abstract class Personaje implements Combatiente{
 		this.rango = rango;
 		this.vidaMax = vida;
 		this.manaMax = mana;
-		//this.estados = new ArrayList<Estado>();
+		this.efectos = new ArrayList<Efecto>();
 	}
 	
 	public void recibirDaño(int daño) {
@@ -30,11 +32,30 @@ public abstract class Personaje implements Combatiente{
 		//impolementar
 		return true;
 	}
-/*	
-	public void agregarEstado(Estado estado) {
-		//implementar
+	public boolean tieneEfecto(Class<? extends Efecto> tipoEfecto) {
+        for (Efecto efecto : efectos) {
+            if (tipoEfecto.isInstance(efecto)) {
+                return true;
+            }
+        }
+        return false;
+    }
+ 
+
+	void agregarEfecto(Efecto e){
+		efectos.add(e);
 	}
-*/
+/*
+	void removerEfecto(Efecto e){
+		for(Efecto e1: efectos)
+			e.activar();
+	}
+*///veremos
+	public void activarEfectos(){
+		for(Efecto e:efectos)
+			e.activar();
+	}
+	
 	@Override
 	public void luchar(Combatiente enemigo) {
 		// TODO Auto-generated method stub

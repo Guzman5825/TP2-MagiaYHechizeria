@@ -1,7 +1,17 @@
 package Efectos;
 
-public interface Efecto {
-	void bajarTurno();
-	public boolean hayTurno();
-	void ejecutar();
+import Unidades.Personaje;
+
+public abstract class Efecto {
+	protected int turnosFaltantes;
+	protected Personaje personaje;
+	
+	void bajarTurno() {
+		this.turnosFaltantes -= 1;
+	}
+	public boolean hayTurno() {
+		return turnosFaltantes > 0 || turnosFaltantes < 0;
+	}
+	
+	abstract public void activar();
 }
