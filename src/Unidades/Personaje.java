@@ -21,11 +21,11 @@ public abstract class Personaje implements Combatiente{
 	}
 	
 	public void recibirDaño(int daño) {
-		//implementar
+		this.vida -= daño;
 	}
 	
 	public void gastarMana(int mana) {
-		//implementar
+		this.mana -= mana;
 	}
 	
 	public boolean puedePelear() {
@@ -45,12 +45,27 @@ public abstract class Personaje implements Combatiente{
 	void agregarEfecto(Efecto e){
 		efectos.add(e);
 	}
-/*
-	void removerEfecto(Efecto e){
-		for(Efecto e1: efectos)
-			e.activar();
-	}
-*///veremos
+	
+	void removerEfectos(){
+        if(efectos.size()<=0) {
+            System.out.println("no hay efectos en este personaje");
+            return;
+        }
+        int i=0;
+        while(i<efectos.size()){
+            Efecto e=efectos.get(i);
+            if(!e.hayTurno()) {
+                efectos.remove(i);
+                i--;
+            }
+            i++;
+        }
+    }
+	public void bajarTurnosEfectos() {
+        for(Efecto e:efectos)
+            e.bajarTurno();
+    }
+
 	public void activarEfectos(){
 		for(Efecto e:efectos)
 			e.activar();
@@ -64,8 +79,7 @@ public abstract class Personaje implements Combatiente{
 
 	@Override
 	public boolean estaMuerto() {
-		// TODO Auto-generated method stub
-		return false;
+		return this.vida <= 0;
 	}
 
 	@Override

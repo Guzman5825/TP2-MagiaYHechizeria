@@ -5,24 +5,28 @@ import java.util.List;
 
 public class Batallon implements Combatiente {
 	private List<Combatiente> combatientes;
-	private int turnoActual;//puede ser que no haga falta este atributo
+	private List<Personaje> personajesVivos;
 	
-	public void agregarCombatiente(Combatiente p) {
-		//implementar
+	public void agregarCombatiente(Combatiente combatiente) {
+		combatientes.add(combatiente);
 	}
 	
-	public void eliminarCombatiente(Combatiente p) {
-		//implementar
+	public void eliminarCombatiente(Combatiente combatiente) {
+		combatientes.remove(combatiente);
 	}
-/*	
-	public Combatiente obtenerJugadorActual() {
-		//tal vez no haga falta
-	}
-*/	
-	public void sigTurno() {
-		//tal vez no haga falta
-	}
-/*	
+	
+	public List<Personaje> obtenerPersonajes() {
+        List<Personaje> personajes = new ArrayList<>();
+        for (Combatiente combatiente : combatientes) {
+            if (combatiente instanceof Personaje) {
+                personajes.add((Personaje) combatiente);
+            } else if (combatiente instanceof Batallon) {
+                personajes.addAll(((Batallon) combatiente).obtenerPersonajes());
+            }
+        }
+        return personajes;
+    }
+/*
 	public Personaje obtenerPersonajeConMenorVida() {
 		//en discucion
 	}

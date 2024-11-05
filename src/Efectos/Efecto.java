@@ -6,7 +6,7 @@ public abstract class Efecto {
 	protected int turnosFaltantes;
 	protected Personaje personaje;
 	
-	void bajarTurno() {
+	public void bajarTurno() {
 		this.turnosFaltantes -= 1;
 	}
 	public boolean hayTurno() {
