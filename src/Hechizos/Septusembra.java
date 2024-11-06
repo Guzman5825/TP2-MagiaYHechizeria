@@ -4,14 +4,15 @@ import java.util.List;
 import Unidades.Personaje;
 
 public class Septusembra extends HechizoBase{
-	Personaje oponente;
+	public static final int costo=30;
+	Personaje objetivo;
 	
 	public Septusembra(Personaje lanzador, Personaje oponente){
 		this.nombre = "Septusembra";
 		this.lanzador = lanzador;
-		this.oponente = oponente;
-		this.dañoBase = 50;
-		this.costeMana = 50;
+		this.objetivo = oponente;
+		this.dañoBase = 30;
+		this.costeMana = 30;
 		this.descripcion = "Hechizo basico ataque.";
 	}
 	
@@ -29,8 +30,8 @@ public class Septusembra extends HechizoBase{
 	public void ejecutar() {
 		System.out.println(lanzador+" ha realizado el hechizo "+nombre);
 		lanzador.gastarMana(costeMana);
-		oponente.recibirDaño(dañoBase);
-		System.out.println(oponente+" ha recibido "+dañoBase+" de daño");
+		objetivo.recibirDaño(dañoBase);
+		System.out.println(objetivo+" ha recibido "+dañoBase+" de daño");
 		
 	}
 }

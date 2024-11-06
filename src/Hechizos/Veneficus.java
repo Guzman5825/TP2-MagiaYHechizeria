@@ -1,18 +1,21 @@
 package Hechizos;
 
 import java.util.List;
+
+import Efectos.Envenenado;
 import Unidades.Personaje;
 
-public class Serpensortia extends HechizoBase{
+public class Veneficus extends HechizoBase{
+	public static final int costo=40;
 	Personaje objetivo;
 	private int turnos;
 	
-	Serpensortia(Personaje lanzador, Personaje objetivo){
-		this.nombre = "Serpensortia";
+	public Veneficus(Personaje lanzador, Personaje objetivo){
+		this.nombre = "Veneficus";
 		this.lanzador = lanzador;
 		this.objetivo = objetivo;
-		this.dañoBase = 50;
-		this.costeMana = 50;
+		this.dañoBase = 10;
+		this.costeMana = 40;
 		this.turnos = 4;
 		this.descripcion = "Hechizo de area venenoso, solo lo pueden utilizar los seguidores.";
 	}
@@ -29,7 +32,11 @@ public class Serpensortia extends HechizoBase{
 	*/
 	@Override
 	public void ejecutar() {
-		// TODO Auto-generated method stub
+		System.out.println(lanzador+" ha realizado el hechizo "+nombre);
+		lanzador.gastarMana(costeMana);
+		objetivo.recibirDaño(dañoBase);
+		System.out.println(objetivo+" ha recibido "+dañoBase+" de daño");
+		objetivo.agregarEfecto(new Envenenado(objetivo));
 		
 	}
 }

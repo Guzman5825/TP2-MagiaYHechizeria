@@ -4,15 +4,16 @@ import java.util.List;
 import Unidades.Personaje;
 
 public class Incendium extends HechizoBase{
+	public static final int costo=40;
 	Personaje objetivo;
 	int turnos;
 	
-	Incendium(Personaje lanzador, Personaje objetivo){
+	public Incendium(Personaje lanzador, Personaje objetivo){
 		this.nombre = "Incendium";
 		this.lanzador = lanzador;
 		this.objetivo = objetivo;
 		this.dañoBase = 5;
-		this.costeMana = 30;
+		this.costeMana = 40;
 		this.turnos = 5;
 		this.descripcion = "Hechizo de area fuego, solo lo pueden utilizar los estudiantes.";
 	}

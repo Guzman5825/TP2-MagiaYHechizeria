@@ -3,13 +3,21 @@ package Efectos;
 import Unidades.Personaje;
 
 public class Envenenado extends Efecto{
-	Envenenado(Personaje persona, int cantTurnos){
-		this.personaje = persona;
+	
+	public Envenenado(Personaje personaje){
+		this.personaje = personaje;
+		this.turnosFaltantes = 5;
+	}
+
+	Envenenado(Personaje personaje, int cantTurnos){
+		this.personaje = personaje;
 		this.turnosFaltantes = cantTurnos;
 	}
+	
 	@Override
 	public void activar() {
-		// TODO Auto-generated method stub
-		
+		int dañoBaseVeneno=10;
+		System.out.println("veneno activado,"+personaje+",-"+dañoBaseVeneno);
+		personaje.recibirDaño(dañoBaseVeneno);
 	}
 }

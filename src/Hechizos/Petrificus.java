@@ -4,14 +4,15 @@ import java.util.List;
 import Unidades.Personaje;
 
 public class Petrificus extends HechizoBase{
+	public static final int costo=50;
 	Personaje objetivo;
 	private int turnos;
 	
-	Petrificus(Personaje lanzador, Personaje objetivo){
+	public Petrificus(Personaje lanzador, Personaje objetivo){
 		this.nombre = "Petrificus";
 		this.lanzador = lanzador;
 		this.objetivo = objetivo;
-		this.dañoBase = 50;
+		this.dañoBase = 0;
 		this.costeMana = 50;
 		this.turnos = 4;
 		this.descripcion = "Hechizo de petrificacion basico.";

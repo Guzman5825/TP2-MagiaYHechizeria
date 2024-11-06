@@ -8,7 +8,6 @@ public class LanzarHechizo implements Accion{
 	
 	public LanzarHechizo(HechizoBase hechizo){
 		this.hechizo=hechizo;
-		
 	}
 	
 	@Override

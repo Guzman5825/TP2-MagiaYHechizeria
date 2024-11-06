@@ -4,15 +4,16 @@ import java.util.List;
 import Unidades.Personaje;
 
 public class Protego extends HechizoBase{
+	public static final int costo=40;
 	private int turnos;
 	Personaje objetivo;
 	
-	Protego(Personaje lanzador, Personaje objetivos){
+	public Protego(Personaje lanzador, Personaje objetivos){
 		this.nombre = "Protego";
 		this.lanzador = lanzador;
 		this.objetivo = objetivos;
-		this.dañoBase = 50;
-		this.costeMana = 50;
+		this.dañoBase = 0;
+		this.costeMana = 40;
 		this.turnos = 4;
 		this.descripcion = "Hechizo de proteccion basico.";
 	}
