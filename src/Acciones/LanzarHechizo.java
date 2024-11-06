@@ -1,13 +1,18 @@
 package Acciones;
 
 import Hechizos.HechizoBase;
+import Unidades.*;
 
 public class LanzarHechizo implements Accion{
-	LanzarHechizo(HechizoBase hechizo){
-		//implementar
+	private HechizoBase hechizo;
+	
+	public LanzarHechizo(HechizoBase hechizo){
+		this.hechizo=hechizo;
+		
 	}
+	
 	@Override
 	public void ejecutar() {
-		//implementar
+		hechizo.ejecutar();
 	}
 }

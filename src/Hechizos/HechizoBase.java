@@ -1,12 +1,10 @@
 package Hechizos;
 
-
 import java.util.List;
 import Unidades.Personaje;
 
 public abstract class HechizoBase {
 	protected Personaje lanzador;
-	protected List<Personaje> objetivo;
 	protected int dañoBase, costeMana;
 	protected String nombre;
 	protected String descripcion;
@@ -24,5 +22,5 @@ public abstract class HechizoBase {
 		return this.dañoBase;
 	}
 	
-	abstract void ejecutar();
+	public abstract void ejecutar();
 }

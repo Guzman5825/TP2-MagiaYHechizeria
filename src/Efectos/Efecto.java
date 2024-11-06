@@ -10,7 +10,7 @@ public abstract class Efecto {
 		this.turnosFaltantes -= 1;
 	}
 	public boolean hayTurno() {
-		return turnosFaltantes > 0 || turnosFaltantes < 0;
+		return turnosFaltantes > 0;
 	}
 	
 	abstract public void activar();

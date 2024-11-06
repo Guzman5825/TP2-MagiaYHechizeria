@@ -3,6 +3,7 @@ package Unidades;
 import java.util.ArrayList;
 import java.util.List;
 
+import Acciones.Accion;
 import Efectos.Efecto;
 
 public abstract class Personaje implements Combatiente{
@@ -10,14 +11,18 @@ public abstract class Personaje implements Combatiente{
 	final private int vidaMax, manaMax;
 	private int vida, mana;
 	private List<Efecto> efectos;
+	private Accion accion;
+	private List<String> objetos;
 	//Constructor
 	protected Personaje(String nombre, int vida, int mana, String clase, String rango) {
 		this.nombre = nombre;
 		this.clase = clase;
 		this.rango = rango;
 		this.vidaMax = vida;
+		this.vida=vida;
 		this.manaMax = mana;
-		this.efectos = new ArrayList<Efecto>();
+		this.mana=mana;
+		this.efectos = new ArrayList<Efecto>(); 
 	}
 	
 	public void recibirDaño(int daño) {
@@ -29,7 +34,8 @@ public abstract class Personaje implements Combatiente{
 	}
 	
 	public boolean puedePelear() {
-		//impolementar
+		if(estaMuerto())	///implementar otras funciones 
+			return false;
 		return true;
 	}
 	public boolean tieneEfecto(Class<? extends Efecto> tipoEfecto) {
@@ -85,8 +91,65 @@ public abstract class Personaje implements Combatiente{
 
 	@Override
 	public void getInfo() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(nombre+"-HP:"+vida+"-M:"+mana+"-"+clase+"-"+rango);
 	}
-	public abstract void pensarAccion(Batallon batallonContrario);
+	
+	protected abstract void pensarAccion(Batallon aliados, Batallon oponentes);
+	
+	public void ejecutarAccion() {
+		this.accion.ejecutar();
+	}
+
+	public void accionar(Batallon aliados, Batallon oponentes) {
+		pensarAccion(aliados,oponentes);
+		accion.ejecutar();
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public int getVida() {
+		return vida;
+	}
+
+	public void setVida(int vida) {
+		this.vida = vida;
+	}
+
+	public int getMana() {
+		return mana;
+	}
+
+	public void setMana(int mana) {
+		this.mana = mana;
+	}
+
+	public Accion getAccion() {
+		return accion;
+	}
+
+	public void setAccion(Accion accion) {
+		this.accion = accion;
+	}
+	@Override
+	public String toString() {
+
+		return nombre;
+	}
+	
+	
+	
+	
+	
+	
 }
