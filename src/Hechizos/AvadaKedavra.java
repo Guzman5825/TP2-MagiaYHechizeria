@@ -9,7 +9,7 @@ public class AvadaKedavra extends HechizoBase{
 	
 	Personaje objetivo;
 	
-	AvadaKedavra(Personaje lanzador, Personaje objetivo){
+	public AvadaKedavra(Personaje lanzador, Personaje objetivo){
 		this.nombre = "AvadaKedavra";
 		this.lanzador = lanzador;
 		this.objetivo = objetivo;

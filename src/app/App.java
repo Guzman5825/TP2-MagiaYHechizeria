@@ -9,7 +9,7 @@ public class App {
 		juego.cargarDatos();
 		System.out.println("\n\n iniciandop la batalla");
 		juego.jugar();
-		
+		System.out.println("juegoTerminado");
 	}
 
 }

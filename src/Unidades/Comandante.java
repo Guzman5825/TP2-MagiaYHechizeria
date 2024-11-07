@@ -3,6 +3,7 @@ package Unidades;
 import Acciones.LanzarHechizo;
 import Acciones.Meditar;
 import Acciones.TomarConsumible;
+import Hechizos.AvadaKedavra;
 import Hechizos.HechizoBase;
 import Hechizos.Septusembra;
 import consumible.Consumible;
@@ -24,14 +25,20 @@ public class Comandante extends Mortifago{
 			return;
 		}
 		
-		Personaje p=oponentes.obtenerPersonajeMenorVida();
-		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) ) {
-			HechizoBase h=new Septusembra(this,p);
+		Personaje p;
+		if( this.tieneSuficenteMagia(AvadaKedavra.NOMBRE) ) {
+			p=oponentes.obtenerPersonajeMayorVida();
+			HechizoBase h=new AvadaKedavra(this,p);
 			accion =new LanzarHechizo (h);
 			return ;
 		}
 		
-		// aca iria el otro hechizo;
+		p=oponentes.obtenerPersonajeMenorVida();
+		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida()<=Septusembra.DAÑO ) {
+			HechizoBase h=new Septusembra(this,p);
+			accion =new LanzarHechizo (h);
+			return ;
+		}
 		
 		accion= new Meditar(this);
 	}

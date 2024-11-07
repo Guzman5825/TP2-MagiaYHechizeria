@@ -51,7 +51,7 @@ public abstract class Personaje implements Combatiente{
 	}
 	
 	public boolean puedePelear() {
-		if(estaMuerto())	///implementar otras funciones 
+		if(estaMuerto() || tieneEfecto(Petrificado.class))	///implementar otras funciones 
 			return false;
 		return true;
 	}
@@ -195,10 +195,12 @@ public abstract class Personaje implements Combatiente{
 	}
 
 	public void accionar(Batallon aliados, Batallon oponentes) {
-		
 		this.activarEfectos();
-		pensarAccion(aliados,oponentes);
-		accion.ejecutar();
+		
+		if(puedePelear()) {
+			pensarAccion(aliados,oponentes);
+			accion.ejecutar();
+		}
 		
 		this.bajarTurnosEfectos();
 		this.removerEfectosSinTurnos();

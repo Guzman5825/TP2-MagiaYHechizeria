@@ -1,5 +1,7 @@
 package Unidades;
 
+import java.util.List;
+
 import Acciones.LanzarHechizo;
 import Acciones.Meditar;
 import Acciones.TomarConsumible;
@@ -25,12 +27,15 @@ public class Auror extends Mago{
 			return;
 		}
 		
+		if(this.tieneSuficenteMagia(Bombardum.NOMBRE)) {
+			List<Personaje> ps=oponentes.getTodosLosPersonaje();
+			HechizoBase h=new Bombardum(this,ps);
+			accion =new LanzarHechizo (h);
+			return ;
+		}
+		
 		Personaje p=oponentes.obtenerPersonajeMenorVida();
-		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) ) {
-			
-			///si tienes suficiente magia para el hechizo bombardum
-			
-			
+		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida()<=Septusembra.DAÑO ) {
 			HechizoBase h=new Septusembra(this,p);
 			accion =new LanzarHechizo (h);
 			return ;

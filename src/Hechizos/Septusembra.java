@@ -10,6 +10,7 @@ import Unidades.Personaje;
 public class Septusembra extends HechizoBase{
 	public static final int costo=30;
 	public static final String NOMBRE="Septusembra";
+	public static final int DAÑO=30;
 	Personaje objetivo;
 	
 	public Septusembra(Personaje lanzador, Personaje oponente){

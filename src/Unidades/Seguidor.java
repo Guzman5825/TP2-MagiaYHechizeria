@@ -24,13 +24,19 @@ public class Seguidor extends Mortifago{
 		}
 		
 		Personaje p=oponentes.obtenerPersonajeMenorVida();
-		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) ) {
+		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida()<=Septusembra.DAÑO ) {
 			HechizoBase h=new Septusembra(this,p);
 			accion =new LanzarHechizo (h);
 			return ;
 		}
 		
-		// aca iria el otro hechizo;
+		if( this.tieneSuficenteMagia(Veneficus.NOMBRE) ) {
+			p=oponentes.obtenerPrimerPersonajeMasAltoRangoPosible();
+			HechizoBase h=new Veneficus(this,p);
+			accion =new LanzarHechizo (h);
+			return ;
+		}
+		
 		
 		accion= new Meditar(this);
 	}

@@ -4,7 +4,9 @@ import Acciones.LanzarHechizo;
 import Acciones.Meditar;
 import Acciones.TomarConsumible;
 import Hechizos.HechizoBase;
+import Hechizos.Incendium;
 import Hechizos.Septusembra;
+import Hechizos.Veneficus;
 import consumible.Consumible;
 import consumible.FactoryConsumible;
 
@@ -26,13 +28,18 @@ public void pensarAccion(Batallon aliados, Batallon oponentes) {
 		}
 		
 		Personaje p=oponentes.obtenerPersonajeMenorVida();
-		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) ) {
+		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida()<=Septusembra.DAÑO ) {
 			HechizoBase h=new Septusembra(this,p);
 			accion =new LanzarHechizo (h);
 			return ;
 		}
 		
-		// aca iria el otro hechizo;
+		if( this.tieneSuficenteMagia(Incendium.NOMBRE) ) {
+			p=oponentes.obtenerPrimerPersonajeMasAltoRangoPosible();
+			HechizoBase h=new Incendium(this,p);
+			accion =new LanzarHechizo (h);
+			return ;
+		}
 		
 		accion= new Meditar(this);
 	}

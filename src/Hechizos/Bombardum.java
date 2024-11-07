@@ -5,6 +5,7 @@ import java.util.List;
 import Efectos.Agilizado;
 import Efectos.Potenciado;
 import Efectos.Protegido;
+import Unidades.Auror;
 import Unidades.Personaje;
 
 public class Bombardum extends HechizoBase{
@@ -16,7 +17,7 @@ public class Bombardum extends HechizoBase{
 		this.nombre = "Bombardum";
 		this.lanzador = lanzador;
 		this.objetivos = objetivos;
-		this.dañoBase = 400;
+		this.dañoBase = 240;
 		this.costeMana = 90;
 		this.descripcion = "Hechizo potente y costoso de area, solo lo pueden usar aurores.";
 	}
@@ -29,13 +30,14 @@ public class Bombardum extends HechizoBase{
 		this.costeMana = costeMana;
 		this.descripcion = "Hechizo potente y costoso de area, solo lo pueden usar aurores.";
 	}*/
-	
+
+
 	@Override
 	public void ejecutar() {
 		
 		lanzador.gastarMana(costeMana);
 		
-		int dañoPorPersonaje= dañoBase / objetivos.size();
+		dañoBase= dañoBase / objetivos.size();
 		
 		if( lanzador.tieneEfecto(Potenciado.class))
 			dañoBase*=2;
@@ -53,7 +55,7 @@ public class Bombardum extends HechizoBase{
 				dañoBase/=3;
 			}
 			
-			objetivo.recibirDaño(dañoPorPersonaje);
+			objetivo.recibirDaño(dañoBase);
 			System.out.println(objetivo+" ha recibido "+dañoBase+" de daño");
 		}
 		
