@@ -4,6 +4,7 @@ import java.util.List;
 import Unidades.Personaje;
 
 public abstract class HechizoBase {
+	
 	protected Personaje lanzador;
 	protected int dañoBase, costeMana;
 	protected String nombre;
@@ -23,4 +24,5 @@ public abstract class HechizoBase {
 	}
 	
 	public abstract void ejecutar();
+	
 }

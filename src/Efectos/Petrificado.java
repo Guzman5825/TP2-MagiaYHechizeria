@@ -4,7 +4,7 @@ import Unidades.Personaje;
 
 public class Petrificado extends Efecto{
 	
-	Petrificado(Personaje personaje){
+	public Petrificado(Personaje personaje){
 		this.personaje = personaje;
 		this.turnosFaltantes = 1;
 	}
@@ -15,7 +15,6 @@ public class Petrificado extends Efecto{
 	}
 	@Override
 	public void activar() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(personaje+" esta petrificado, sin movimientos en el siguiente turno");
 	}
 }

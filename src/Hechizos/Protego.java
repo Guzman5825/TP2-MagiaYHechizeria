@@ -1,10 +1,13 @@
 package Hechizos;
 
 import java.util.List;
+
+import Efectos.Protegido;
 import Unidades.Personaje;
 
 public class Protego extends HechizoBase{
 	public static final int costo=40;
+	public static final String NOMBRE="Protego";
 	private int turnos;
 	Personaje objetivo;
 	
@@ -17,20 +20,21 @@ public class Protego extends HechizoBase{
 		this.turnos = 4;
 		this.descripcion = "Hechizo de proteccion basico.";
 	}
-	/*
+	
 	Protego(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int costeMana, int turnos){
 		this.nombre = "Protego";
 		this.lanzador = lanzador;
-		this.objetivos = objetivos;
+		//this.objetivos = objetivos;
 		this.dañoBase = dañoBase;
 		this.costeMana = costeMana;
 		this.turnos = turnos;
 		this.descripcion = "Hechizo de proteccion basico.";
-	}*/
+	}
 	
 	@Override
 	public void ejecutar() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(lanzador+" ha realizado el hechizo "+nombre+" a "+objetivo);
+		lanzador.gastarMana(costeMana);
+		objetivo.agregarEfecto(new Protegido(objetivo));
 	}
 }

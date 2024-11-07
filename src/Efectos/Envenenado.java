@@ -17,7 +17,7 @@ public class Envenenado extends Efecto{
 	@Override
 	public void activar() {
 		int dañoBaseVeneno=10;
-		System.out.println("veneno activado,"+personaje+",-"+dañoBaseVeneno);
+		System.out.println(personaje+" esta envenado -"+dañoBaseVeneno+"HP");
 		personaje.recibirDaño(dañoBaseVeneno);
 	}
 }

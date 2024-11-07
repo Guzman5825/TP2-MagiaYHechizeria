@@ -1,10 +1,13 @@
 package Hechizos;
 
 import java.util.List;
+
+import Efectos.Petrificado;
 import Unidades.Personaje;
 
 public class Petrificus extends HechizoBase{
 	public static final int costo=50;
+	public static final String NOMBRE="Petrificus";
 	Personaje objetivo;
 	private int turnos;
 	
@@ -30,7 +33,9 @@ public class Petrificus extends HechizoBase{
 	
 	@Override
 	public void ejecutar() {
-		// TODO Auto-generated method stub
+		System.out.println(lanzador+" ha realizado el hechizo "+nombre+" a "+objetivo);
+		lanzador.gastarMana(costeMana);
 		
+		objetivo.agregarEfecto(new Petrificado(objetivo));
 	}
 }

@@ -19,9 +19,12 @@ public class Juego {
 	public void cargarDatos() { /// aca se da todos los datos que necesitamos
 		batallon_1.agregarCombatiente(new Auror("brincas"));
 		batallon_1.agregarCombatiente(new Auror("einsten"));
+		batallon_1.agregarCombatiente(new Profesor("profesor desk"));
 		
+		batallon_2.agregarCombatiente(new Seguidor("seguidor 1"));
+		batallon_2.agregarCombatiente(new Seguidor("seguidor 2"));
 		batallon_2.agregarCombatiente(new Seguidor("seguidor 3"));
-		batallon_2.agregarCombatiente(new Seguidor("seguidor 9"));
+		batallon_2.agregarCombatiente(new Seguidor("seguidor 4"));
 		
 		///////////////////para arriba se carga los enemigos
 		
@@ -58,7 +61,7 @@ public class Juego {
 		Personaje personajeActual;
 		while (!this.estaTerminado()) {
 			if (personajes_vivos_1.size()>0) {
-				System.out.println("*****turno del batallon 1*****");
+				System.out.println("\n*****turno del batallon 1*****");
 				personajeActual = obtenerSiguienteJugadorDeJugadores1();
 				personajeActual.getInfo();
 				personajeActual.accionar(batallon_1, batallon_2);
@@ -67,7 +70,7 @@ public class Juego {
 			removerPersonajesMuertos();
 
 			if (personajes_vivos_2.size()>0) {
-				System.out.println("*****turno del batallon 2*****");
+				System.out.println("\n*****turno del batallon 2*****");
 				personajeActual = obtenerSiguienteJugadorDeJugadores2();
 				personajeActual.getInfo();
 				personajeActual.accionar(batallon_2, batallon_1);
@@ -100,6 +103,7 @@ public class Juego {
 			while (i < personajes_vivos_1.size()) {
 				Personaje p = personajes_vivos_1.get(i);
 				if (p.estaMuerto()) {
+					System.out.println(p+" se fue de sabatico!!!!!");
 					personajes_vivos_1.remove(i);
 					i--;
 				}
@@ -112,6 +116,7 @@ public class Juego {
 			while (i < personajes_vivos_2.size()) {
 				Personaje p = personajes_vivos_2.get(i);
 				if (p.estaMuerto()) {
+					System.out.println(p+" ah sido incapacitado");
 					personajes_vivos_2.remove(i);
 					i--;
 				}

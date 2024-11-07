@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Acciones.Accion;
-import Efectos.Efecto;
+import Efectos.*;
 import Hechizos.*;
+import consumible.*;
 
 public abstract class Personaje implements Combatiente{
 	final protected String nombre, clase, rango;
@@ -28,6 +29,8 @@ public abstract class Personaje implements Combatiente{
 	}
 	
 	public void recibirDaño(int daño) {
+		
+		
 		this.vida -= daño;
 	}
 	
@@ -58,15 +61,14 @@ public abstract class Personaje implements Combatiente{
 	}
 	
 	public boolean tienePocoMana() {
-		return ((int)manaMax*0.2)>=mana;
+		return 40>=mana;
 	}
 	
 	public boolean tieneEfecto(Class<? extends Efecto> tipoEfecto) {
-        for (Efecto efecto : efectos) {
-            if (tipoEfecto.isInstance(efecto)) {
+        for (Efecto efecto : efectos) 
+            if (tipoEfecto.isInstance(efecto)) 
                 return true;
-            }
-        }
+        
         return false;
     }
 	
@@ -96,7 +98,7 @@ public abstract class Personaje implements Combatiente{
 			if(mana>=Protego.costo)
 				return true;
 		if(nombreHechizo.equals("Veneficus"))
-			if(mana>=Veneficus.costo)
+			if(mana>=40)
 				return true;
 		if(nombreHechizo.equals("Incendium"))
 			if(mana>=Incendium.costo)
@@ -113,37 +115,41 @@ public abstract class Personaje implements Combatiente{
 		String nombreConsumible=null;
 			
 		for(String consumible:consumibles)
-			if(esUtil(consumible))
+			if(esUtilUsar(consumible))
 				return consumible;
 		return nombreConsumible;
 	}
 
-	private boolean esUtil(String consumible) {
-		if( consumible.equalsIgnoreCase("pocionVida") ) 
+	private boolean esUtilUsar(String consumible) {
+		if( consumible.equalsIgnoreCase(Consumible.POCION_VIDA) ) 
 			if(this.tienePocaVida())
 				return true;
 		
-		if( consumible.equalsIgnoreCase("pocionMana") ) 
-			if(this.tienePocaEnergia())
+		if( consumible.equalsIgnoreCase(Consumible.POCION_MANA) )
+			if(this.tienePocoMana())
+				return true;
+		
+		if( consumible.equalsIgnoreCase(Consumible.POCION_VIGORIZANTE) )
+			if(!tieneEfecto(Vigorizado.class))
+				return true;
+		
+		if( consumible.equalsIgnoreCase(Consumible.POCION_POTENCIADORA) )
+			if(!tieneEfecto(Potenciado.class))
+				return true;
+		
+		if( consumible.equalsIgnoreCase(Consumible.POCION_ESPECTRO) )
+			if(!tieneEfecto(Agilizado.class))
 				return true;
 		
 		return false;
 	}
 
-	private boolean tienePocaEnergia() {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
 	public void agregarEfecto(Efecto e){
 		efectos.add(e);
 	}
 	
-	public void removerEfectos(){
-        if(efectos.size()<=0) {
-            System.out.println("no hay efectos en este personaje");
-            return;
-        }
+	public void removerEfectosSinTurnos(){
         int i=0;
         while(i<efectos.size()){
             Efecto e=efectos.get(i);
@@ -176,9 +182,10 @@ public abstract class Personaje implements Combatiente{
 
 	@Override
 	public void getInfo() {
-		System.out.printf("%-20s  HP:%3d/%3d EM:%3d/%3d   %s-%s \n",
+		System.out.printf("%-15s  HP:%3d/%3d EM:%3d/%3d  %s-%s\n",
 				nombre,vida,vidaMax,mana,manaMax,clase,rango);
-		//System.out.println(nombre+"-HP:"+vida+"/"+vidaMax+"-M:"+mana+"/"+manaMax+"-"+clase+"-"+rango);
+		System.out.println("Consumible:"+consumibles);
+		
 	}
 	
 	public abstract void pensarAccion(Batallon aliados, Batallon oponentes);
@@ -188,19 +195,18 @@ public abstract class Personaje implements Combatiente{
 	}
 
 	public void accionar(Batallon aliados, Batallon oponentes) {
+		
+		this.activarEfectos();
 		pensarAccion(aliados,oponentes);
 		accion.ejecutar();
+		
+		this.bajarTurnosEfectos();
+		this.removerEfectosSinTurnos();
 	}
 
 	public void quitarDeListaDeObjetos(String nombreObjeto) {
 		consumibles.remove(nombreObjeto);
 	}
-	
-	
-	
-	
-	
-	
 	
 	
 	public int getVida() {

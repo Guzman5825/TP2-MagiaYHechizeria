@@ -3,7 +3,7 @@ package Efectos;
 import Unidades.Personaje;
 
 public class Potenciado extends Efecto{	
-	Potenciado(Personaje personaje){
+	public Potenciado(Personaje personaje){
 		this.personaje = personaje;
 		this.turnosFaltantes = 2;
 	}
@@ -14,7 +14,6 @@ public class Potenciado extends Efecto{
 	}
 	@Override
 	public void activar() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(personaje+" esta potenciado, duplica el daño el siguiente hechizo");
 	}
 }

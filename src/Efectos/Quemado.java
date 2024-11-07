@@ -4,7 +4,7 @@ import Unidades.Personaje;
 
 public class Quemado extends Efecto{
 	
-	Quemado(Personaje personaje){
+	public Quemado(Personaje personaje){
 		this.personaje = personaje;
 		this.turnosFaltantes = 5;
 	}
@@ -13,10 +13,11 @@ public class Quemado extends Efecto{
 		this.personaje = persona;
 		this.turnosFaltantes = cantTurnos;
 	}
+	
 	@Override
 	public void activar() {
 		int dañoBaseFuego=15;
-		System.out.println("veneno activado,"+personaje+",-"+dañoBaseFuego);
+		System.out.println(personaje+" esta quemado -"+dañoBaseFuego+"HP");
 		personaje.recibirDaño(dañoBaseFuego);
 	}
 }

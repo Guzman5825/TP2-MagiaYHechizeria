@@ -7,6 +7,7 @@ import Unidades.Personaje;
 
 public class Veneficus extends HechizoBase{
 	public static final int costo=40;
+	public static final String NOMBRE="Veneficus";
 	Personaje objetivo;
 	private int turnos;
 	
@@ -32,11 +33,10 @@ public class Veneficus extends HechizoBase{
 	*/
 	@Override
 	public void ejecutar() {
-		System.out.println(lanzador+" ha realizado el hechizo "+nombre);
+		System.out.println(lanzador+" ha realizado el hechizo "+nombre+" a "+objetivo);
 		lanzador.gastarMana(costeMana);
 		objetivo.recibirDaño(dañoBase);
-		System.out.println(objetivo+" ha recibido "+dañoBase+" de daño");
+		System.out.println(objetivo+" ha recibido "+dañoBase+" de daño y efecto Enveneado");
 		objetivo.agregarEfecto(new Envenenado(objetivo));
-		
 	}
 }

@@ -2,6 +2,7 @@ package Unidades;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Batallon implements Combatiente {
 	private List<Combatiente> combatientes;
@@ -57,6 +58,7 @@ public class Batallon implements Combatiente {
 		for(Combatiente c:combatientes)
 			c.getInfo();
 	}
+	////////////////////aca van las funciones que ayudan para 
 
 	public Personaje obtenerPersonajeMenorVida() {
 		Personaje personajeMenorVida=null;
@@ -66,4 +68,12 @@ public class Batallon implements Combatiente {
 				personajeMenorVida=p;
 		return personajeMenorVida;
 	}
+	
+	public Personaje obtenerPersonajeAleatorio() {
+		Random random = new Random(12345);
+        int indiceAleatorio = random.nextInt(personajesVivos.size());
+        return personajesVivos.get(indiceAleatorio);
+	}
+	
+	
 }

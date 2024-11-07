@@ -4,7 +4,7 @@ import Unidades.Personaje;
 
 public class Protegido extends Efecto{
 	
-	Protegido(Personaje personaje){
+	public Protegido(Personaje personaje){
 		this.personaje = personaje;
 		this.turnosFaltantes = 3;
 	}
@@ -15,7 +15,6 @@ public class Protegido extends Efecto{
 	}
 	@Override
 	public void activar() {
-		// TODO Auto-generated method stub
-		
+		System.out.println(personaje+" esta protegido, reduccion de daño");
 	}
 }

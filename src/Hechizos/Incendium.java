@@ -1,10 +1,14 @@
 package Hechizos;
 
 import java.util.List;
+
+import Efectos.Envenenado;
+import Efectos.Quemado;
 import Unidades.Personaje;
 
 public class Incendium extends HechizoBase{
 	public static final int costo=40;
+	public static final String NOMBRE="Incendium";
 	Personaje objetivo;
 	int turnos;
 	
@@ -30,7 +34,11 @@ public class Incendium extends HechizoBase{
 	
 	@Override
 	public void ejecutar() {
-		// TODO Auto-generated method stub
+		System.out.println(lanzador+" ha realizado el hechizo "+nombre+" a "+objetivo);
+		lanzador.gastarMana(costeMana);
 		
+		objetivo.recibirDaño(dañoBase);
+		System.out.println(objetivo+" ha recibido "+dañoBase+" de daño y efecto quemado");
+		objetivo.agregarEfecto(new Quemado(objetivo));
 	}
 }

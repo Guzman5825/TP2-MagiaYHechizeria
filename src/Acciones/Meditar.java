@@ -11,8 +11,8 @@ public class Meditar implements Accion{
 
 	@Override
 	public void ejecutar() {
-		System.out.println(personaje +": ha meditado, + 10HP , + 10EM");
-		
+		System.out.println(personaje +" ha meditado + 10HP  + 20MP");
+		///falta recargar
 		
 	}
 }

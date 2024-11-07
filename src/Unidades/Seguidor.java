@@ -2,12 +2,15 @@ package Unidades;
 
 import Acciones.*;
 import Hechizos.*;
-import consumible.FactoryConsumible;
+import consumible.*;
+
 
 public class Seguidor extends Mortifago{
+
 	public Seguidor(String nombre){
 		super(nombre,80,80,"Seguidor");
-		this.consumibles.add("porcionMana");
+		consumibles.add(Consumible.POCION_MANA);
+		//cambiara pocion espectro
 	}
 
 	@Override
@@ -15,12 +18,20 @@ public class Seguidor extends Mortifago{
 		
 		String consumible=this.obtenerPrimerNombreObjetoUtil();
 		if(consumible!=null) {
-			accion= new TomarConsumible( FactoryConsumible.crearConsumible(this, consumible) );
+			Consumible c= FactoryConsumible.crearConsumible(this, consumible);
+			accion = new TomarConsumible( c );
 			return;
 		}
 		
 		Personaje p=oponentes.obtenerPersonajeMenorVida();
-		HechizoBase h=new Septusembra(this,p);
-		this.setAccion(new LanzarHechizo (h) );
+		if( this.tieneSuficenteMagia(Septusembra.NOMBRE) ) {
+			HechizoBase h=new Septusembra(this,p);
+			accion =new LanzarHechizo (h);
+			return ;
+		}
+		
+		// aca iria el otro hechizo;
+		
+		accion= new Meditar(this);
 	}
 }
