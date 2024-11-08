@@ -179,8 +179,27 @@ public class Batallon implements Combatiente {
 		return null;
 	}
 
-	
+	public Personaje obtenerSiguientePersonaje() {
+		if (indice >= this.personajesVivos.size())
+			indice = indice % this.personajesVivos.size();
+		Personaje personajeActual = this.personajesVivos.get(indice);
+		indice++;
+		return personajeActual;
+	}
 
 	
+	public void removerPersonajesMuertos() {
+	    personajesVivos.removeIf(personaje -> {
+	        if (personaje.estaMuerto()) {
+	            System.out.println(personaje + " se fue de sabático!!!!!");
+	            return true; 
+	        }
+	        return false;
+	    });
+	}
+	
+	public boolean batallonDerrotado() {
+		return this.personajesVivos.size()==0;
+	}
 	
 }
