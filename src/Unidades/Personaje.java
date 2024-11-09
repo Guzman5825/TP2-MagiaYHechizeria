@@ -81,43 +81,8 @@ public abstract class Personaje implements Combatiente{
 	
 
 	public boolean tieneSuficenteMagia(String nombreHechizo) {
-		///aca se preguntaria a prolog 
-		if(nombreHechizo.equals("AvadaKedavra"))
-			if(mana>=AvadaKedavra.costo)
-				return true;
-		
-		if(nombreHechizo.equals("Septusembra"))
-			if(mana>=Septusembra.costo)
-				return true;
-		
-		if(nombreHechizo.equals("Bombardum"))
-			if(mana>=Bombardum.costo)
-				return true;
-		
-		if(nombreHechizo.equals("Protego"))
-			if(mana>=Protego.costo)
-				return true;
-		if(nombreHechizo.equals("Veneficus"))
-			if(mana>=40)
-				return true;
-		if(nombreHechizo.equals("Incendium"))
-			if(mana>=Incendium.costo)
-				return true;
-		
-		if(nombreHechizo.equals("Petrificus"))
-			if(mana>=Petrificus.costo)
-				return true;
-		
-		return false;
-	}
-	
-	public String obtenerPrimerNombreObjetoUtil() {
-		String nombreConsumible=null;
-			
-		for(String consumible:consumibles)
-			if(esUtilUsar(consumible))
-				return consumible;
-		return nombreConsumible;
+		//importante pasar todo el nombre del hechizo a minuscula 
+		 return ManejoProlog.puedeLanzarHechizo(nombreHechizo.toLowerCase(), this.mana);
 	}
 
 	private boolean esUtilUsar(String consumible) {
