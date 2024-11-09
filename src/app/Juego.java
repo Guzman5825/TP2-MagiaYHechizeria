@@ -58,30 +58,41 @@ public class Juego {
 		while (!this.estaTerminado()) {
 			if (personajes_vivos_1.size() > 0) {
 				System.out.println("\n*****turno del batallon 1*****");
-				personajeActual = obtenerSiguienteJugadorDeJugadores1();
+				personajeActual = batallon_1.obtenerSiguientePersonaje();
 				personajeActual.getInfo();
 				personajeActual.accionar(batallon_1, batallon_2);
 			}
 
-			removerPersonajesMuertos();
+			batallon_1.removerPersonajesMuertos();
+			batallon_2.removerPersonajesMuertos();
 
 			if (!this.estaTerminado()) {
 				
 				if (personajes_vivos_2.size() > 0) {
 					System.out.println("\n*****turno del batallon 2*****");
-					personajeActual = obtenerSiguienteJugadorDeJugadores2();
+					personajeActual = batallon_2.obtenerSiguientePersonaje();
 					personajeActual.getInfo();
 					personajeActual.accionar(batallon_2, batallon_1);
 				}
-
-				removerPersonajesMuertos();
+				//creo q se podria prescindir de remover para el batallon 2 aca, y hacer lo mismo con el batallon 1 arriba
+				//ya que los que atacan no pueden morir
+				//pero x las duuuudas 
+				batallon_1.removerPersonajesMuertos();
+				batallon_2.removerPersonajesMuertos();
 
 			}
 
 		}
+		//cuando salio del while significa que termino
+		if(batallon_1.batallonDerrotado()) {
+			System.out.println("El batallón 2 ha ganado!");
+		}
+		else {
+			System.out.println("El batallón 2 ha ganado!");
+		}
 	}
 
-	Personaje obtenerSiguienteJugadorDeJugadores1() {
+	/*Personaje obtenerSiguienteJugadorDeJugadores1() {
 		if (indice_1 >= personajes_vivos_1.size())
 			indice_1 = indice_1 % personajes_vivos_1.size();
 		Personaje personajeActual = personajes_vivos_1.get(indice_1);
@@ -127,5 +138,9 @@ public class Juego {
 
 	private boolean estaTerminado() {
 		return personajes_vivos_1.size() <= 0 || personajes_vivos_2.size() <= 0;
+	}*/
+
+	private boolean estaTerminado() {
+		return batallon_1.batallonDerrotado() || batallon_2.batallonDerrotado();
 	}
 }
