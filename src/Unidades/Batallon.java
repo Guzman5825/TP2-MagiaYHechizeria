@@ -11,7 +11,7 @@ import Hechizos.*;
 public class Batallon implements Combatiente {
 	private List<Combatiente> combatientes;
 	private List<Personaje> personajesVivos;
-	
+	private int indice = 0;
 	public Batallon(){
 		this.combatientes = new ArrayList<Combatiente>();
 		this.personajesVivos = new ArrayList<Personaje>();
