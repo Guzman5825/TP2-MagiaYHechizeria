@@ -56,4 +56,5 @@ public void pensarAccion(Batallon aliados, Batallon oponentes) {
 		
 		accion= new Meditar(this);
 	}
+
 }

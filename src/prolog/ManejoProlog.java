@@ -2,21 +2,14 @@ package prolog;
 
 import org.jpl7.*;
 
-import Unidades.Batallon;
-import Unidades.Personaje;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
 public class ManejoProlog {
-    private static final String FILE_NAME = "C:/Users/nicol/programming-paradigms/TP2-MagiaYHechizeria/src/prolog/magosvsmortifagos.pl";
+    private static final String FILE_NAME = "../src/prolog/magosvsmortifagos.pl";
 
     // Bloque static para cargar el archivo Prolog al iniciar la clase
     static {
         Query cargarArchivo = new Query("consult('" + FILE_NAME + "')");
         if (!cargarArchivo.hasSolution()) {
-            System.out.println("Error al cargar el archivo Prolog.");
+            throw new RuntimeException("Error con la carga del archivo prolog");
         } 
     }
 

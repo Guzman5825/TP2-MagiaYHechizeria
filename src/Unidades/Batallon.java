@@ -202,4 +202,8 @@ public class Batallon implements Combatiente {
 		return this.personajesVivos.size()==0;
 	}
 	
+	public int cantidadPersonajesVivos() {
+		return this.personajesVivos.size();
+	}
+	
 }

@@ -7,6 +7,7 @@ import Acciones.Accion;
 import Efectos.*;
 import Hechizos.*;
 import consumible.*;
+import prolog.ManejoProlog;
 
 public abstract class Personaje implements Combatiente{
 	final protected String nombre, clase, rango;
@@ -85,6 +86,17 @@ public abstract class Personaje implements Combatiente{
 		 return ManejoProlog.puedeLanzarHechizo(nombreHechizo.toLowerCase(), this.mana);
 	}
 
+	
+	public String obtenerPrimerNombreObjetoUtil() {
+        String nombreConsumible=null;
+           
+        for(String consumible:consumibles)
+            if(esUtilUsar(consumible))
+                return consumible;
+        return nombreConsumible;
+    }
+ 
+	
 	private boolean esUtilUsar(String consumible) {
 		if( consumible.equalsIgnoreCase(Consumible.POCION_VIDA) ) 
 			if(this.tienePocaVida())
@@ -202,6 +214,14 @@ public abstract class Personaje implements Combatiente{
 	@Override
 	public String toString() {
 		return nombre;
+	}
+	
+	public String getNombre() {
+		return this.nombre;
+	}
+	
+	public String getRango() {
+		return this.rango;
 	}
 	
 }

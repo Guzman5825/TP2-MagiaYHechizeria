@@ -38,8 +38,10 @@ public class MagoOscuro extends Mortifago {
 
 		if (this.tieneSuficenteMagia(Protego.NOMBRE)) {
 			p = aliados.obtenerPrimerPersonajeMasAltoRangoPosibleSinProtego();
-			accion = new LanzarHechizo(new Protego(this, p));
-			return;
+			if(p != null) {
+				accion = new LanzarHechizo(new Protego(this, p));
+				return;
+			}
 		}
 
 		// lo mas intelegiten es usar septusembra si el un enemigo tiene poca vida como
@@ -53,5 +55,6 @@ public class MagoOscuro extends Mortifago {
 
 		accion = new Meditar(this);
 	}
+
 
 }

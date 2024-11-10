@@ -43,4 +43,5 @@ public class Comandante extends Mortifago{
 		accion= new Meditar(this);
 	}
 
+
 }

@@ -40,4 +40,6 @@ public class Seguidor extends Mortifago{
 		
 		accion= new Meditar(this);
 	}
+
+
 }
