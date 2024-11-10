@@ -28,7 +28,7 @@ public class Auror extends Mago {
 			return;
 		}
 
-		if (this.tieneSuficenteMagia(Bombardum.NOMBRE)) {
+		if (this.tieneSuficenteMana(Bombardum.NOMBRE)) {
 			List<Personaje> ps = oponentes.getTodosLosPersonaje();
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueEnArea(TiposHechizos.BOMBARDUM, this, ps);
 			accion = new LanzarHechizo(h);
@@ -36,7 +36,7 @@ public class Auror extends Mago {
 		}
 
 		Personaje p = oponentes.obtenerPersonajeMenorVida();
-		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
+		if (this.tieneSuficenteMana(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;

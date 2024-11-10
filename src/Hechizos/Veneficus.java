@@ -19,15 +19,14 @@ public class Veneficus extends HechizoBase {
 		this.descripcion = "Hechizo de area venenoso, solo lo pueden utilizar los seguidores.";
 	}
 
-	/*
-	 * Serpensortia(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int
-	 * costeMana, int turnos){ this.nombre = "Serpensortia"; this.lanzador =
-	 * lanzador; this.objetivo = objetivos; this.dañoBase = dañoBase; this.costeMana
-	 * = costeMana; this.turnos = turnos; this.descripcion =
-	 * "Hechizo de area venenoso, solo lo pueden utilizar los seguidores."; }
-	 */
+
 	@Override
 	public void ejecutar() {
+		
+		if(objetivo.equals(lanzador)) {
+			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
+			return;
+		}
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
 		lanzador.gastarMana(costeMana);
 		objetivo.recibirDaño(dañoBase);

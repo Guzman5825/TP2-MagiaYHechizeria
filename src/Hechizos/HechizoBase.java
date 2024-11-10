@@ -10,15 +10,15 @@ public abstract class HechizoBase {
 	protected String nombre;
 	protected String descripcion;
 
-	String getNombre() {
+	public String getNombre() {
 		return this.nombre;
 	}
 
-	int getCostoMana() {
+	public int getCostoMana() {
 		return this.costeMana;
 	}
 
-	int getDañoBase() {
+	public int getDañoBase() {
 		return this.dañoBase;
 	}
 

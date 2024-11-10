@@ -28,7 +28,7 @@ public class Comandante extends Mortifago {
 		}
 
 		Personaje p;
-		if (this.tieneSuficenteMagia(AvadaKedavra.NOMBRE)) {
+		if (this.tieneSuficenteMana(AvadaKedavra.NOMBRE)) {
 			p = oponentes.obtenerPersonajeMayorVida();
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.AVADAKEDAVRA, this, p);
 			accion = new LanzarHechizo(h);
@@ -36,7 +36,7 @@ public class Comandante extends Mortifago {
 		}
 
 		p = oponentes.obtenerPersonajeMenorVida();
-		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
+		if (this.tieneSuficenteMana(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;

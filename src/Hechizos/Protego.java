@@ -31,7 +31,7 @@ public class Protego extends HechizoBase {
 		this.turnos = turnos;
 		this.descripcion = "Hechizo de proteccion basico.";
 	}
-
+ 
 	@Override
 	public void ejecutar() {
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);

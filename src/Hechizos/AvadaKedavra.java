@@ -29,6 +29,11 @@ public class AvadaKedavra extends HechizoBase {
 
 	@Override
 	public void ejecutar() {
+		if(objetivo.equals(lanzador)) {
+			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
+			return;
+		}
+		
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
 		lanzador.gastarMana(costeMana); /// ejecutar mana puede estar por fuera de esta funcion
 

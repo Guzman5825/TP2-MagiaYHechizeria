@@ -22,16 +22,14 @@ public class Bombardum extends HechizoBase {
 		this.costeMana = 90;
 		this.descripcion = "Hechizo potente y costoso de area, solo lo pueden usar aurores.";
 	}
-	/*
-	 * Bombardum(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int
-	 * costeMana){ this.nombre = "Bombardum"; this.lanzador = lanzador;
-	 * this.objetivo = objetivos; this.dañoBase = dañoBase; this.costeMana =
-	 * costeMana; this.descripcion =
-	 * "Hechizo potente y costoso de area, solo lo pueden usar aurores."; }
-	 */
 
 	@Override
 	public void ejecutar() {
+
+		if (objetivos.contains(lanzador)) {
+			Logger.agregarMensaje("No puede lanzarse ese hechizo, el impacto le afectara a si mismo");
+			return;
+		}
 
 		lanzador.gastarMana(costeMana);
 
@@ -58,4 +56,5 @@ public class Bombardum extends HechizoBase {
 		}
 
 	}
+
 }

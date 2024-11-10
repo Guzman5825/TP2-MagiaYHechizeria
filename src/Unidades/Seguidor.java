@@ -10,7 +10,6 @@ public class Seguidor extends Mortifago {
 	public Seguidor(String nombre) {
 		super(nombre, 80, 80, "Seguidor");
 		consumibles.add(Consumible.POCION_MANA);
-		// cambiara pocion espectro
 	}
 
 	@Override
@@ -24,13 +23,13 @@ public class Seguidor extends Mortifago {
 		}
 
 		Personaje p = oponentes.obtenerPersonajeMenorVida();
-		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
+		if (this.tieneSuficenteMana(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}
 
-		if (this.tieneSuficenteMagia(Veneficus.NOMBRE)) {
+		if (this.tieneSuficenteMana(Veneficus.NOMBRE)) {
 			p = oponentes.obtenerPrimerPersonajeMasAltoRangoPosible();
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.VENEFICUS, this, p);
 			accion = new LanzarHechizo(h);

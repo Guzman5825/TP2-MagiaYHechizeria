@@ -80,7 +80,7 @@ public abstract class Personaje implements Combatiente {
 		return false;
 	}
 
-	public boolean tieneSuficenteMagia(String nombreHechizo) {
+	public boolean tieneSuficenteMana(String nombreHechizo) {
 		// importante pasar todo el nombre del hechizo a minuscula
 		return ManejoProlog.puedeLanzarHechizo(nombreHechizo.toLowerCase(), this.mana);
 	}
@@ -233,5 +233,8 @@ public abstract class Personaje implements Combatiente {
 	public String getRango() {
 		return this.rango;
 	}
-
+	
+	public int getVidaMax() {
+		return this.vidaMax;
+	}
 }

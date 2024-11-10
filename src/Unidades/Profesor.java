@@ -34,14 +34,14 @@ public class Profesor extends Mago {
 
 		Personaje p;
 
-		if (this.tieneSuficenteMagia(Petrificus.NOMBRE) && oponentes.hayAlgunAurorOComandanteSinPetrificado()) {
+		if (this.tieneSuficenteMana(Petrificus.NOMBRE) && oponentes.hayAlgunAurorOComandanteSinPetrificado()) {
 			p = oponentes.obtenerElPrimerAurorOComandanteSinPetrificar();
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.PETRIFICUS, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}
 
-		if (this.tieneSuficenteMagia(Protego.NOMBRE)) {
+		if (this.tieneSuficenteMana(Protego.NOMBRE)) {
 			p = aliados.obtenerPrimerPersonajeMasAltoRangoPosibleSinProtego();
 			if (p != null) {
 				HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.PROTEGO, this, p);
@@ -51,7 +51,7 @@ public class Profesor extends Mago {
 		}
 
 		p = oponentes.obtenerPersonajeMenorVida();
-		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
+		if (this.tieneSuficenteMana(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
 			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;

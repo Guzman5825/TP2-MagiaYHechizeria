@@ -23,15 +23,14 @@ public class Septusembra extends HechizoBase {
 		this.descripcion = "Hechizo basico ataque.";
 	}
 
-	/*
-	 * Septusembra(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int
-	 * costeMana){ this.nombre = "Septusembra"; this.lanzador = lanzador;
-	 * this.objetivo = objetivos; this.dañoBase = dañoBase; this.costeMana =
-	 * costeMana; this.descripcion = "Hechizo basico ataque.."; }
-	 */
 
 	@Override
 	public void ejecutar() {
+		if(objetivo.equals(lanzador)) {
+			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
+			return;
+		}
+		
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
 		lanzador.gastarMana(costeMana);
 
