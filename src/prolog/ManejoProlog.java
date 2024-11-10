@@ -3,7 +3,9 @@ package prolog;
 import org.jpl7.*;
 
 public class ManejoProlog {
-    private static final String FILE_NAME = "prolog/magosvsmortifagos.pl";
+	///si alguno no les funciona borrar src/; y mandas el jpl a classpath
+	private static final String FILE_NAME = "src/prolog/magosvsmortifagos.pl";
+
 
     static {
         Query cargarArchivo = new Query("consult('" + FILE_NAME + "')");

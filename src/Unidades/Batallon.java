@@ -190,13 +190,34 @@ public class Batallon implements Combatiente {
 	}
 
 	public void removerPersonajesMuertos() {
+		if (personajesVivos.size() > 0) {
+			int i = 0;
+			while (i < personajesVivos.size()) {
+				Personaje p = personajesVivos.get(i);
+				if (p.estaMuerto()) {
+					///probar si funciona
+					if(indice>i)
+						indice--;
+					
+					Logger.agregarMensaje( p + " se fue de sabático!!!!!");
+					personajesVivos.remove(i);
+					i--;
+				}
+				i++;
+			}
+		}
+		
+		
+		
+		/*
 		personajesVivos.removeIf(personaje -> {
 			if (personaje.estaMuerto()) {
+				///aca hay que pensar en el indice
 				Logger.agregarMensaje(personaje + " se fue de sabático!!!!!");
 				return true;
 			}
 			return false;
-		});
+		});*/
 	}
 
 	public boolean batallonDerrotado() {
