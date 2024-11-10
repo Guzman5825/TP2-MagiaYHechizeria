@@ -3,7 +3,9 @@ package prolog;
 import org.jpl7.*;
 
 public class ManejoProlog {
-    private static final String FILE_NAME = "../src/prolog/magosvsmortifagos.pl";
+	
+	///si alguno no les funciona borrar src/; y mandas el jpl a classpath
+	private static final String FILE_NAME = "src/prolog/magosvsmortifagos.pl";
 
     // Bloque static para cargar el archivo Prolog al iniciar la clase
     static {

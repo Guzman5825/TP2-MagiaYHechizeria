@@ -35,7 +35,6 @@ public class Juego {
 
 		batallon_2.cargarPersonajesVivos();
 		personajes_vivos_2 = batallon_2.obtenerListaPersonajesVivos();
-
 	}
 
 	public void jugar() {
