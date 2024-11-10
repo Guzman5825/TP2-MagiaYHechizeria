@@ -1,15 +1,28 @@
 package app;
 
+import logger.Logger;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class App {
 
-	public static void main(String[] args) {
-		Juego juego=new Juego();
-		
-		System.out.println("-----Carga de batallones-----");
-		juego.cargarDatos();
-		System.out.println("\n\n-----Iniciando la batalla-----");
-		juego.jugar();
-		System.out.println("-----Juego Terminado-----");
-	}
+    public static void main(String[] args) {
+        Logger.agregarMensaje("-----Carga de batallones-----");
+
+        Juego juego = new Juego();
+        juego.cargarDatos();
+
+        Logger.agregarMensaje("\n\n-----Iniciando la batalla-----");
+        juego.jugar();
+
+        Logger.agregarMensaje("-----Juego Terminado-----");
+
+        Logger.mostrarMensajes();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH.mm");
+        String fechaActual = LocalDateTime.now().format(formatter);
+
+        Logger.guardarEnArchivo("logBatalla_" + fechaActual + ".txt");
+    }
 
 }

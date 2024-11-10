@@ -2,11 +2,11 @@ package app;
 
 import java.util.List;
 import Unidades.*;
+import logger.Logger;
 
 public class Juego {
 	private Batallon batallon_1, batallon_2;
 	List<Personaje> personajes_vivos_1, personajes_vivos_2;
-
 
 	public Juego() { /// agrego las variable
 		batallon_1 = new Batallon();
@@ -25,8 +25,8 @@ public class Juego {
 		batallon_2.agregarCombatiente(new MagoOscuro("el inombrable"));
 		/////////////////// para arriba se carga los enemigos
 
-		batallon_1.getInfo();
-		batallon_2.getInfo();
+		batallon_1.imprimirInfo();
+		batallon_2.imprimirInfo();
 
 		batallon_1.cargarPersonajesVivos();
 		personajes_vivos_1 = batallon_1.obtenerListaPersonajesVivos();
@@ -40,9 +40,9 @@ public class Juego {
 		Personaje personajeActual;
 		while (!this.estaTerminado()) {
 			if (batallon_1.cantidadPersonajesVivos() > 0) {
-				System.out.println("\n*****turno del batallon 1*****");
+				Logger.agregarMensaje("\n*****turno del batallon 1*****");
 				personajeActual = batallon_1.obtenerSiguientePersonaje();
-				personajeActual.getInfo();
+				personajeActual.imprimirInfo();
 				personajeActual.accionar(batallon_1, batallon_2);
 			}
 
@@ -51,9 +51,9 @@ public class Juego {
 
 			if (!this.estaTerminado()) {
 				if (batallon_2.cantidadPersonajesVivos() > 0) {
-					System.out.println("\n*****turno del batallon 2*****");
+					Logger.agregarMensaje("\n*****turno del batallon 2*****");
 					personajeActual = batallon_2.obtenerSiguientePersonaje();
-					personajeActual.getInfo();
+					personajeActual.imprimirInfo();
 					personajeActual.accionar(batallon_2, batallon_1);
 				}
 
@@ -63,12 +63,11 @@ public class Juego {
 			}
 
 		}
-		//cuando salio del while significa que termino
-		if(batallon_1.batallonDerrotado()) {
-			System.out.println("El batallón 2 ha ganado!");
-		}
-		else {
-			System.out.println("El batallón 2 ha ganado!");
+
+		if (batallon_1.batallonDerrotado()) {
+			Logger.agregarMensaje("-----Gano el batallon 2-----");
+		} else {
+			Logger.agregarMensaje("-----Gano el batallon 1-----");
 		}
 	}
 

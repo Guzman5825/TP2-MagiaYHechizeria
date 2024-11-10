@@ -1,17 +1,18 @@
 package consumible;
 
 import Unidades.Personaje;
+import logger.Logger;
 
-public class PocionVida extends Consumible{
+public class PocionVida extends Consumible {
 
 	public PocionVida(Personaje p) {
-		this.personaje=p;
+		this.personaje = p;
 	}
-	
+
 	@Override
 	public void activarConsumible() {
-		int vidaArecargar=100;
-		System.out.println(personaje+" +100HP");
+		int vidaArecargar = 100;
+		Logger.agregarMensaje(personaje + " +100HP");
 		personaje.ganarMana(vidaArecargar);
 	}
 

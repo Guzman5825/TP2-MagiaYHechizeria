@@ -2,10 +2,9 @@ package Acciones;
 
 import consumible.Consumible;
 
-public class TomarConsumible implements Accion{
+public class TomarConsumible implements Accion {
 	private Consumible consumible;
-	
-	
+
 	public TomarConsumible(Consumible consumible) {
 		this.consumible = consumible;
 	}

@@ -38,7 +38,7 @@ public class MagoOscuro extends Mortifago {
 
 		if (this.tieneSuficenteMagia(Protego.NOMBRE)) {
 			p = aliados.obtenerPrimerPersonajeMasAltoRangoPosibleSinProtego();
-			if(p != null) {
+			if (p != null) {
 				accion = new LanzarHechizo(new Protego(this, p));
 				return;
 			}
@@ -52,9 +52,7 @@ public class MagoOscuro extends Mortifago {
 			return;
 		}
 
-
 		accion = new Meditar(this);
 	}
-
 
 }

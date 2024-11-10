@@ -4,14 +4,15 @@ import java.util.List;
 
 import Efectos.Protegido;
 import Unidades.Personaje;
+import logger.Logger;
 
-public class Protego extends HechizoBase{
-	public static final int costo=40;
-	public static final String NOMBRE="Protego";
+public class Protego extends HechizoBase {
+	public static final int costo = 40;
+	public static final String NOMBRE = "Protego";
 	private int turnos;
-	Personaje objetivo;
-	
-	public Protego(Personaje lanzador, Personaje objetivos){
+	private Personaje objetivo;
+
+	public Protego(Personaje lanzador, Personaje objetivos) {
 		this.nombre = "Protego";
 		this.lanzador = lanzador;
 		this.objetivo = objetivos;
@@ -20,20 +21,20 @@ public class Protego extends HechizoBase{
 		this.turnos = 4;
 		this.descripcion = "Hechizo de proteccion basico.";
 	}
-	
-	Protego(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int costeMana, int turnos){
+
+	Protego(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int costeMana, int turnos) {
 		this.nombre = "Protego";
 		this.lanzador = lanzador;
-		//this.objetivos = objetivos;
+		// this.objetivos = objetivos;
 		this.dañoBase = dañoBase;
 		this.costeMana = costeMana;
 		this.turnos = turnos;
 		this.descripcion = "Hechizo de proteccion basico.";
 	}
-	
+
 	@Override
 	public void ejecutar() {
-		System.out.println(lanzador+" ha realizado el hechizo "+nombre+" a "+objetivo);
+		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
 		lanzador.gastarMana(costeMana);
 		objetivo.agregarEfecto(new Protegido(objetivo));
 	}
