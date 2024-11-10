@@ -20,6 +20,10 @@ public class Juego {
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Faul Loger", TiposPersonaje.AUROR));
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Snape", TiposPersonaje.PROFESOR));
 		
+		Batallon batallon_3= new Batallon();
+		batallon_3.agregarCombatiente(FactoryPersonaje.crearPersonaje("GLORO!!!", TiposPersonaje.PROFESOR));
+		batallon_1.agregarCombatiente(batallon_3);
+		
 		
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 1", TiposPersonaje.SEGUIDOR));
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 2", TiposPersonaje.SEGUIDOR));
@@ -37,6 +41,8 @@ public class Juego {
 		personajes_vivos_2 = batallon_2.obtenerListaPersonajesVivos();
 	}
 
+
+	
 	public void jugar() {
 		Personaje personajeActual;
 		while (!this.estaTerminado()) {
