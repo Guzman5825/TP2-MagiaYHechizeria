@@ -3,6 +3,7 @@ package Unidades;
 import Acciones.*;
 import Hechizos.*;
 import consumible.*;
+import enums.TiposHechizos;
 
 public class Seguidor extends Mortifago {
 
@@ -24,14 +25,14 @@ public class Seguidor extends Mortifago {
 
 		Personaje p = oponentes.obtenerPersonajeMenorVida();
 		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
-			HechizoBase h = new Septusembra(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}
 
 		if (this.tieneSuficenteMagia(Veneficus.NOMBRE)) {
 			p = oponentes.obtenerPrimerPersonajeMasAltoRangoPosible();
-			HechizoBase h = new Veneficus(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.VENEFICUS, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}

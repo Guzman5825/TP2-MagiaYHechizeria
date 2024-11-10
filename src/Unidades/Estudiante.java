@@ -3,12 +3,14 @@ package Unidades;
 import Acciones.LanzarHechizo;
 import Acciones.Meditar;
 import Acciones.TomarConsumible;
+import Hechizos.FactoryHechizos;
 import Hechizos.HechizoBase;
 import Hechizos.Incendium;
 import Hechizos.Septusembra;
 import Hechizos.Veneficus;
 import consumible.Consumible;
 import consumible.FactoryConsumible;
+import enums.TiposHechizos;
 
 public class Estudiante extends Mago {
 	public Estudiante(String nombre) {
@@ -29,14 +31,14 @@ public class Estudiante extends Mago {
 
 		Personaje p = oponentes.obtenerPersonajeMenorVida();
 		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
-			HechizoBase h = new Septusembra(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}
 
 		if (this.tieneSuficenteMagia(Incendium.NOMBRE)) {
 			p = oponentes.obtenerPrimerPersonajeMasAltoRangoPosible();
-			HechizoBase h = new Incendium(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.INCENDIUM, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}

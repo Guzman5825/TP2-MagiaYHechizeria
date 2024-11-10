@@ -4,10 +4,12 @@ import Acciones.LanzarHechizo;
 import Acciones.Meditar;
 import Acciones.TomarConsumible;
 import Hechizos.AvadaKedavra;
+import Hechizos.FactoryHechizos;
 import Hechizos.HechizoBase;
 import Hechizos.Septusembra;
 import consumible.Consumible;
 import consumible.FactoryConsumible;
+import enums.TiposHechizos;
 
 public class Comandante extends Mortifago {
 	public Comandante(String nombre) {
@@ -28,14 +30,14 @@ public class Comandante extends Mortifago {
 		Personaje p;
 		if (this.tieneSuficenteMagia(AvadaKedavra.NOMBRE)) {
 			p = oponentes.obtenerPersonajeMayorVida();
-			HechizoBase h = new AvadaKedavra(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.AVADAKEDAVRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}
 
 		p = oponentes.obtenerPersonajeMenorVida();
 		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
-			HechizoBase h = new Septusembra(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}

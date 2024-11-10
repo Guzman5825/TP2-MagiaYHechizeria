@@ -8,6 +8,7 @@ import Acciones.TomarConsumible;
 import Hechizos.*;
 import consumible.Consumible;
 import consumible.FactoryConsumible;
+import enums.TiposHechizos;
 
 public class Auror extends Mago {
 	public Auror(String nombre) {
@@ -29,19 +30,17 @@ public class Auror extends Mago {
 
 		if (this.tieneSuficenteMagia(Bombardum.NOMBRE)) {
 			List<Personaje> ps = oponentes.getTodosLosPersonaje();
-			HechizoBase h = new Bombardum(this, ps);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueEnArea(TiposHechizos.BOMBARDUM, this, ps);
 			accion = new LanzarHechizo(h);
 			return;
 		}
 
 		Personaje p = oponentes.obtenerPersonajeMenorVida();
 		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
-			HechizoBase h = new Septusembra(this, p);
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
 			accion = new LanzarHechizo(h);
 			return;
 		}
-
-		// aca iria el otro hechizo;
 
 		accion = new Meditar(this);
 	}

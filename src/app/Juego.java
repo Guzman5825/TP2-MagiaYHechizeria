@@ -1,5 +1,6 @@
 package app;
 
+import enums.TiposPersonaje;
 import java.util.List;
 import Unidades.*;
 import logger.Logger;
@@ -15,14 +16,15 @@ public class Juego {
 	}
 
 	public void cargarDatos() { /// aca se da todos los datos que necesitamos
-		batallon_1.agregarCombatiente(new Auror("brincas"));
-		batallon_1.agregarCombatiente(new Estudiante("harry"));
-		batallon_1.agregarCombatiente(new Profesor("faul loger"));
-
-		batallon_2.agregarCombatiente(new Seguidor("seguidor 1"));
-		batallon_2.agregarCombatiente(new Seguidor("seguidor 2"));
-		batallon_2.agregarCombatiente(new Comandante("voldemor"));
-		batallon_2.agregarCombatiente(new MagoOscuro("el inombrable"));
+		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Harry Potter", TiposPersonaje.ESTUDIANTE));
+		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Faul Loger", TiposPersonaje.AUROR));
+		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Snape", TiposPersonaje.PROFESOR));
+		
+		
+		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 1", TiposPersonaje.SEGUIDOR));
+		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 2", TiposPersonaje.SEGUIDOR));
+		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Voldemort", TiposPersonaje.COMANDANTE));
+		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("El Inmobrable", TiposPersonaje.MAGOOSCURO));
 		/////////////////// para arriba se carga los enemigos
 
 		batallon_1.imprimirInfo();

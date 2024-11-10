@@ -3,12 +3,14 @@ package Unidades;
 import Acciones.LanzarHechizo;
 import Acciones.Meditar;
 import Acciones.TomarConsumible;
+import Hechizos.FactoryHechizos;
 import Hechizos.HechizoBase;
 import Hechizos.Petrificus;
 import Hechizos.Protego;
 import Hechizos.Septusembra;
 import consumible.Consumible;
 import consumible.FactoryConsumible;
+import enums.TiposHechizos;
 
 public class MagoOscuro extends Mortifago {
 	public MagoOscuro(String nombre) {
@@ -32,23 +34,24 @@ public class MagoOscuro extends Mortifago {
 
 		if (this.tieneSuficenteMagia(Petrificus.NOMBRE) && oponentes.hayAlgunAurorOComandanteSinPetrificado()) {
 			p = oponentes.obtenerElPrimerAurorOComandanteSinPetrificar();
-			accion = new LanzarHechizo(new Petrificus(this, p));
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.PETRIFICUS, this, p);
+			accion = new LanzarHechizo(h);
 			return;
 		}
 
 		if (this.tieneSuficenteMagia(Protego.NOMBRE)) {
 			p = aliados.obtenerPrimerPersonajeMasAltoRangoPosibleSinProtego();
 			if (p != null) {
+				HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.PROTEGO, this, p);
 				accion = new LanzarHechizo(new Protego(this, p));
 				return;
 			}
 		}
 
-		// lo mas intelegiten es usar septusembra si el un enemigo tiene poca vida como
-		// para incapacitarlo
 		p = oponentes.obtenerPersonajeMenorVida();
 		if (this.tieneSuficenteMagia(Septusembra.NOMBRE) && p.getVida() <= Septusembra.DAÑO) {
-			accion = new LanzarHechizo(new Septusembra(this, p));
+			HechizoBase h = FactoryHechizos.crearHechizoAtaqueIndividual(TiposHechizos.SEPTUSEMBRA, this, p);
+			accion = new LanzarHechizo(h);
 			return;
 		}
 

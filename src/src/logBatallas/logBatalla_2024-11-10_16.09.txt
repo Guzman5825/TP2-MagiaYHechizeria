@@ -1,0 +1,129 @@
+-----Carga de batallones-----
+------BATALLON------
+brincas          HP:200/200 EM:200/200  Mago-Auror
+Consumible:[pocionVida, pocionPotenciadora]
+harry            HP: 80/ 80 EM: 80/ 80  Mago-Estudiante
+Consumible:[pocionVida, pocionVida]
+faul loger       HP:130/130 EM:130/130  Mago-Profesor
+Consumible:[pocionVida, pocionVida, pocionVigorizante]
+snape            HP:200/200 EM:200/200  Mago-Auror
+Consumible:[pocionVida, pocionPotenciadora]
+-----------------
+------BATALLON------
+seguidor 1       HP: 80/ 80 EM: 80/ 80  Mortifago-Seguidor
+Consumible:[pocionMana]
+seguidor 2       HP: 80/ 80 EM: 80/ 80  Mortifago-Seguidor
+Consumible:[pocionMana]
+voldemor         HP:200/200 EM:200/200  Mortifago-Comandante
+Consumible:[orocrux]
+el inombrable    HP:130/130 EM:130/130  Mortifago-MagoOscuro
+Consumible:[pocionMana, pocionMana, pocionMana]
+-----------------
+
+
+-----Iniciando la batalla-----
+
+*****turno del batallon 1*****
+brincas          HP:200/200 EM:200/200  Mago-Auror
+Consumible:[pocionVida, pocionPotenciadora]
+brincas ha consumido la pocion potenciadora, añadiendo efecto...
+
+*****turno del batallon 2*****
+seguidor 1       HP: 80/ 80 EM: 80/ 80  Mortifago-Seguidor
+Consumible:[pocionMana]
+seguidor 1 ha realizado el hechizo Veneficus a brincas
+brincas ha recibido 10 de daño y efecto Enveneado
+
+*****turno del batallon 1*****
+harry            HP: 80/ 80 EM: 80/ 80  Mago-Estudiante
+Consumible:[pocionVida, pocionVida]
+harry ha realizado el hechizo Incendium a voldemor
+voldemor ha recibido 5 de daño y efecto quemado
+
+*****turno del batallon 2*****
+seguidor 2       HP: 80/ 80 EM: 80/ 80  Mortifago-Seguidor
+Consumible:[pocionMana]
+seguidor 2 ha realizado el hechizo Veneficus a brincas
+brincas ha recibido 10 de daño y efecto Enveneado
+
+*****turno del batallon 1*****
+faul loger       HP:130/130 EM:130/130  Mago-Profesor
+Consumible:[pocionVida, pocionVida, pocionVigorizante]
+faul loger ha consumido la pocion vigorizante, añadiendo efecto...
+
+*****turno del batallon 2*****
+voldemor         HP:195/200 EM:200/200  Mortifago-Comandante
+Consumible:[orocrux]
+voldemor esta quemado -15HP
+voldemor ha realizado el hechizo AvadaKedavra a snape
+snape ha recibido 1000 de daño
+snape se fue de sabático!!!!!
+
+*****turno del batallon 1*****
+brincas          HP:180/200 EM:200/200  Mago-Auror
+Consumible:[pocionVida]
+brincas esta potenciado, duplica el daño el siguiente hechizo
+brincas esta envenado -10HP
+brincas esta envenado -10HP
+brincas ha realizado el hechizo Bombarduma seguidor 1
+seguidor 1 ha recibido 120 de daño
+brincas ha realizado el hechizo Bombarduma seguidor 2
+seguidor 2 ha recibido 120 de daño
+brincas ha realizado el hechizo Bombarduma voldemor
+voldemor ha recibido 120 de daño
+brincas ha realizado el hechizo Bombarduma el inombrable
+el inombrable ha recibido 120 de daño
+seguidor 1 se fue de sabático!!!!!
+seguidor 2 se fue de sabático!!!!!
+
+*****turno del batallon 2*****
+el inombrable    HP: 10/130 EM:130/130  Mortifago-MagoOscuro
+Consumible:[pocionMana, pocionMana, pocionMana]
+el inombrable ha realizado el hechizo Petrificus a brincas
+
+*****turno del batallon 1*****
+harry            HP: 80/ 80 EM: 40/ 80  Mago-Estudiante
+Consumible:[pocionVida, pocionVida]
+harry ha realizado el hechizo Septusembra a el inombrable
+el inombrable ha recibido 30 de daño
+el inombrable se fue de sabático!!!!!
+
+*****turno del batallon 2*****
+voldemor         HP: 60/200 EM:120/200  Mortifago-Comandante
+Consumible:[orocrux]
+voldemor esta quemado -15HP
+voldemor ha realizado el hechizo AvadaKedavra a brincas
+brincas ha recibido 1000 de daño
+brincas se fue de sabático!!!!!
+
+*****turno del batallon 1*****
+harry            HP: 80/ 80 EM: 10/ 80  Mago-Estudiante
+Consumible:[pocionVida, pocionVida]
+harry ha meditado + 10HP  + 20MP
+
+*****turno del batallon 2*****
+voldemor         HP: 45/200 EM: 40/200  Mortifago-Comandante
+Consumible:[orocrux]
+voldemor esta quemado -15HP
+voldemor ha meditado + 10HP  + 20MP
+
+*****turno del batallon 1*****
+faul loger       HP:130/130 EM:130/130  Mago-Profesor
+Consumible:[pocionVida, pocionVida]
+faul loger esta vigorizado +10HP +10MP
+faul loger ha realizado el hechizo Petrificus a voldemor
+
+*****turno del batallon 2*****
+voldemor         HP: 40/200 EM: 60/200  Mortifago-Comandante
+Consumible:[orocrux]
+voldemor esta quemado -15HP
+voldemor esta petrificado, sin movimientos en el siguiente turno
+
+*****turno del batallon 1*****
+harry            HP: 80/ 80 EM: 30/ 80  Mago-Estudiante
+Consumible:[pocionVida, pocionVida]
+harry ha realizado el hechizo Septusembra a voldemor
+voldemor ha recibido 30 de daño
+voldemor se fue de sabático!!!!!
+-----Gano el batallon 1-----
+-----Juego Terminado-----
