@@ -22,6 +22,6 @@ public class Petrificado extends Efecto {
 
 	@Override
 	public String getNombre() {
-		return "petrificado";
+		return "Petrificado";
 	}
 }

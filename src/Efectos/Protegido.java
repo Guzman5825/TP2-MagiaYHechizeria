@@ -22,6 +22,6 @@ public class Protegido extends Efecto {
 
 	@Override
 	public String getNombre() {
-		return "protegido";
+		return "Protegido";
 	}
 }

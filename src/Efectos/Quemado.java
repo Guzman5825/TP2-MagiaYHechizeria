@@ -24,7 +24,7 @@ public class Quemado extends Efecto {
 
 	@Override
 	public String getNombre() {
-		return "quemado";
+		return "Quemado";
 	}
 	
 }

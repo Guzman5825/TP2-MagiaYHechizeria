@@ -17,7 +17,7 @@ public class Agilizado extends Efecto {
 
 	@Override
 	public String getNombre() {
-		return "agilizado";
+		return "Agilizado";
 	}
 
 }

@@ -19,7 +19,7 @@ public class Vigorizado extends Efecto {
 
 	@Override
 	public String getNombre() {
-		return "quemado";
+		return "Vigorizado";
 	}
 	
 

@@ -157,6 +157,11 @@ public abstract class Personaje implements Combatiente {
 				rango);
 		info += "\nConsumible:" + consumibles;
 		
+		info += "  ,Efectos:";
+		
+		for(Efecto efecto:efectos)
+			info+=efecto.getNombre()+" ";
+		
 		Logger.agregarMensaje(info);
 
 	}
