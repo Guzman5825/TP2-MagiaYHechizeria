@@ -21,4 +21,10 @@ public class Quemado extends Efecto {
 		Logger.agregarMensaje(personaje + " esta quemado -" + dañoBaseFuego + "HP");
 		personaje.recibirDaño(dañoBaseFuego);
 	}
+
+	@Override
+	public String getNombre() {
+		return "quemado";
+	}
+	
 }

@@ -18,4 +18,9 @@ public class Potenciado extends Efecto {
 	public void activar() {
 		Logger.agregarMensaje(personaje + " esta potenciado, duplica el daño el siguiente hechizo");
 	}
+
+	@Override
+	public String getNombre() {
+		return "petrificado";
+	}
 }

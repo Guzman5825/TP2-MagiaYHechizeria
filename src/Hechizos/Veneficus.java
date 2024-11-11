@@ -1,6 +1,5 @@
 package Hechizos;
 
-
 import Efectos.Envenenado;
 import Unidades.Personaje;
 import logger.Logger;
@@ -19,11 +18,10 @@ public class Veneficus extends HechizoBase {
 		this.descripcion = "Hechizo de area venenoso, solo lo pueden utilizar los seguidores.";
 	}
 
-
 	@Override
 	public void ejecutar() {
-		
-		if(objetivo.equals(lanzador)) {
+
+		if (objetivo.equals(lanzador)) {
 			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
 			return;
 		}

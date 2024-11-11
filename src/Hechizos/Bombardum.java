@@ -41,9 +41,9 @@ public class Bombardum extends HechizoBase {
 		int dañoBasePorUnidad;
 		for (Personaje objetivo : objetivos) {
 			Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + "a " + objetivo);
-			
-			dañoBasePorUnidad=dañoBase;
-			
+
+			dañoBasePorUnidad = dañoBase;
+
 			if (objetivo.tieneEfecto(Agilizado.class)) {
 				Logger.agregarMensaje(objetivo + " estaba Agilizado y con su suerte evito el ataque");
 				continue;

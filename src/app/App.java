@@ -6,23 +6,23 @@ import java.time.format.DateTimeFormatter;
 
 public class App {
 
-    public static void main(String[] args) {
-        Logger.agregarMensaje("-----Carga de batallones-----");
+	public static void main(String[] args) {
+		Logger.agregarMensaje("-----Carga de batallones-----");
 
-        Juego juego = new Juego();
-        juego.cargarDatos();
+		Juego juego = new Juego();
+		juego.cargarDatos();
 
-        Logger.agregarMensaje("\n\n-----Iniciando la batalla-----");
-        juego.jugar();
+		Logger.agregarMensaje("\n\n-----Iniciando la batalla-----");
+		juego.jugar();
 
-        Logger.agregarMensaje("-----Juego Terminado-----");
+		Logger.agregarMensaje("-----Juego Terminado-----");
 
-        Logger.mostrarMensajes();
+		Logger.mostrarMensajes();
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH.mm");
-        String fechaActual = LocalDateTime.now().format(formatter);
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH.mm");
+		String fechaActual = LocalDateTime.now().format(formatter);
 
-        Logger.guardarEnArchivo("logBatalla_" + fechaActual + ".txt");
-    }
+		Logger.guardarEnArchivo("logBatalla_" + fechaActual + ".txt");
+	}
 
 }

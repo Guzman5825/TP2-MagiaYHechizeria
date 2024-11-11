@@ -14,20 +14,20 @@ public class AvadaKedavra extends HechizoBase {
 		this.nombre = "AvadaKedavra";
 		this.lanzador = lanzador;
 		this.objetivo = objetivo;
-		this.dañoBase = 1000; 
+		this.dañoBase = 1000;
 		this.costeMana = 80;
 		this.descripcion = "Hechizo potente y costoso, solo lo pueden usar comandantes.";
 	}
 
 	@Override
 	public void ejecutar() {
-		if(objetivo.equals(lanzador)) {
+		if (objetivo.equals(lanzador)) {
 			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
 			return;
 		}
-		
+
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
-		lanzador.gastarMana(costeMana); 
+		lanzador.gastarMana(costeMana);
 
 		if (objetivo.tieneEfecto(Agilizado.class)) {
 			Logger.agregarMensaje(objetivo + " estaba Agilizado y con su suerte evito el ataque");

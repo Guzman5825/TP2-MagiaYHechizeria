@@ -19,4 +19,9 @@ public class Protegido extends Efecto {
 	public void activar() {
 		Logger.agregarMensaje(personaje + " esta protegido, reduccion de daño");
 	}
+
+	@Override
+	public String getNombre() {
+		return "protegido";
+	}
 }

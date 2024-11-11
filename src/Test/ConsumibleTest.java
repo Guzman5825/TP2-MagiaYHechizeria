@@ -16,21 +16,21 @@ class ConsumibleTest {
 	@Test
 	void aumentaVidaCorrespondiente() {
 		Personaje personaje = new Estudiante("Harry");
-		int vidaEsperada=personaje.getVida();
+		int vidaEsperada = personaje.getVida();
 		personaje.recibirDaño(70);
-		personaje.setAccion(new TomarConsumible( new PocionVida(personaje) ) );
+		personaje.setAccion(new TomarConsumible(new PocionVida(personaje)));
 		personaje.ejecutarAccion();
 		assertEquals(vidaEsperada, personaje.getVida());
 	}
-	
+
 	@Test
 	void aumentaManaCorrespondiente() {
 		Personaje personaje = new Estudiante("Harry");
-		int manaEsperada=personaje.getMana();
+		int manaEsperada = personaje.getMana();
 		personaje.gastarMana(70);
-		personaje.setAccion(new TomarConsumible( new PocionMana(personaje) ) );
+		personaje.setAccion(new TomarConsumible(new PocionMana(personaje)));
 		personaje.ejecutarAccion();
 		assertEquals(manaEsperada, personaje.getMana());
 	}
-	
+
 }

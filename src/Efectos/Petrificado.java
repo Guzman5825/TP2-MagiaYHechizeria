@@ -19,4 +19,9 @@ public class Petrificado extends Efecto {
 	public void activar() {
 		Logger.agregarMensaje(personaje + " esta petrificado, sin movimientos en el siguiente turno");
 	}
+
+	@Override
+	public String getNombre() {
+		return "petrificado";
+	}
 }

@@ -15,4 +15,6 @@ public abstract class Efecto {
 	}
 
 	abstract public void activar();
+	
+	abstract public String getNombre();
 }

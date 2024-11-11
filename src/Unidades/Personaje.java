@@ -51,7 +51,7 @@ public abstract class Personaje implements Combatiente {
 	}
 
 	public boolean puedePelear() {
-		if (estaMuerto() || tieneEfecto(Petrificado.class)) 
+		if (estaMuerto() || tieneEfecto(Petrificado.class))
 			return false;
 		return true;
 	}
@@ -153,26 +153,21 @@ public abstract class Personaje implements Combatiente {
 	}
 
 	public void imprimirInfo() {
-	    String info = String.format(
-	            "%-15s  HP:%3d/%3d EM:%3d/%3d  %s-%s",
-	            nombre, vida, vidaMax, mana, manaMax, clase, rango
-	        );
-	        info += "\nConsumible:" + consumibles;
-	        
-	    Logger.agregarMensaje(info);
+		String info = String.format("%-15s  HP:%3d/%3d EM:%3d/%3d  %s-%s", nombre, vida, vidaMax, mana, manaMax, clase,
+				rango);
+		info += "\nConsumible:" + consumibles;
+		
+		Logger.agregarMensaje(info);
 
 	}
-	
+
 	public String getInfo() {
-	    String info = String.format(
-	        "%-15s  HP:%3d/%3d EM:%3d/%3d  %s-%s",
-	        nombre, vida, vidaMax, mana, manaMax, clase, rango
-	    );
-	    info += "\nConsumible:" + consumibles;
-	    
-	    return info;
-	}
+		String info = String.format("%-15s  HP:%3d/%3d EM:%3d/%3d  %s-%s", nombre, vida, vidaMax, mana, manaMax, clase,
+				rango);
+		info += "\nConsumible:" + consumibles;
 
+		return info;
+	}
 
 	public abstract void pensarAccion(Batallon aliados, Batallon oponentes);
 
@@ -232,7 +227,7 @@ public abstract class Personaje implements Combatiente {
 	public String getRango() {
 		return this.rango;
 	}
-	
+
 	public int getVidaMax() {
 		return this.vidaMax;
 	}

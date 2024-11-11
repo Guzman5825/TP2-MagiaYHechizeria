@@ -1,6 +1,5 @@
 package Hechizos;
 
-
 import Unidades.Personaje;
 
 public abstract class HechizoBase {

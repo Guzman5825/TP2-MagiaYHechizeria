@@ -15,4 +15,9 @@ public class Agilizado extends Efecto {
 		Logger.agregarMensaje(personaje + " esta Agilizado al 100%, si tiene turnos");
 	}
 
+	@Override
+	public String getNombre() {
+		return "agilizado";
+	}
+
 }

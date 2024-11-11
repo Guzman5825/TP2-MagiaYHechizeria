@@ -8,15 +8,14 @@ import Unidades.Estudiante;
 import prolog.ManejoProlog;
 
 class PrologTest {
-	
+
 	@Test
 	void testPuedeLanzarConSuficienteMana() {
 		Estudiante harry = new Estudiante("Harry");
 		harry.setMana(100);
 		assertTrue(ManejoProlog.puedeLanzarHechizo("septusembra", harry.getMana()));
 	}
-	
-	
+
 	@Test
 	void testPuedeLanzarInsuficienteMana() {
 		Estudiante harry = new Estudiante("Harry");

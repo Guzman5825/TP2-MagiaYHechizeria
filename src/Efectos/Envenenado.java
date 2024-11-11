@@ -21,4 +21,9 @@ public class Envenenado extends Efecto {
 		Logger.agregarMensaje(personaje + " esta envenado -" + dañoBaseVeneno + "HP");
 		personaje.recibirDaño(dañoBaseVeneno);
 	}
+
+	@Override
+	public String getNombre() {
+		return "envenenado";
+	}
 }

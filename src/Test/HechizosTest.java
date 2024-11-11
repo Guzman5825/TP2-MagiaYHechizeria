@@ -92,7 +92,7 @@ class HechizosTest {
 		assertEquals(c.getVidaMax(), c.getVida(), "Deberia esquivar el ataque");
 
 	}
-	
+
 	@Test
 	void testIncendiumAplicaEfectoQuemar() {
 		Comandante c = new Comandante("V");
@@ -103,7 +103,7 @@ class HechizosTest {
 
 		assertTrue(c.tieneEfecto(Quemado.class));
 	}
-	
+
 	@Test
 	void testProtegoAplicaProtegido() {
 		Estudiante e = new Estudiante("H");
@@ -113,7 +113,7 @@ class HechizosTest {
 
 		assertTrue(e.tieneEfecto(Protegido.class));
 	}
-	
+
 	@Test
 	void testVeneficusAplicaEnvenenado() {
 		Seguidor s = new Seguidor("S");
@@ -122,5 +122,5 @@ class HechizosTest {
 		s.ejecutarAccion();
 		assertTrue(e.tieneEfecto(Envenenado.class));
 	}
-	
+
 }

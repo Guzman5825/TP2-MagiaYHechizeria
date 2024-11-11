@@ -1,7 +1,5 @@
 package Hechizos;
 
-
-
 import Efectos.Petrificado;
 import Unidades.Personaje;
 import logger.Logger;
@@ -22,8 +20,8 @@ public class Petrificus extends HechizoBase {
 
 	@Override
 	public void ejecutar() {
-		
-		if(objetivo.equals(lanzador)) {
+
+		if (objetivo.equals(lanzador)) {
 			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
 			return;
 		}

@@ -71,7 +71,6 @@ public class Batallon implements Combatiente {
 		return this.personajesVivos;
 	}
 
-
 	public Personaje obtenerPersonajeMenorVida() {
 		Personaje personajeMenorVida = null;
 		int vidaMenor = 1000000;
@@ -193,11 +192,11 @@ public class Batallon implements Combatiente {
 			while (i < personajesVivos.size()) {
 				Personaje p = personajesVivos.get(i);
 				if (p.estaMuerto()) {
-					///probar si funciona
-					if(indice>i)
+					/// probar si funciona
+					if (indice > i)
 						indice--;
-					
-					Logger.agregarMensaje( p + " se fue de sabático!!!!!");
+
+					Logger.agregarMensaje(p + " se fue de sabático!!!!!");
 					personajesVivos.remove(i);
 					i--;
 				}

@@ -17,4 +17,10 @@ public class Vigorizado extends Efecto {
 		personaje.ganarVida(10);
 	}
 
+	@Override
+	public String getNombre() {
+		return "quemado";
+	}
+	
+
 }

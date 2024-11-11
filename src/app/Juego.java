@@ -9,22 +9,21 @@ public class Juego {
 	private Batallon batallon_1, batallon_2;
 	List<Personaje> personajes_vivos_1, personajes_vivos_2;
 
-	public Juego() { 
+	public Juego() {
 		batallon_1 = new Batallon();
 		batallon_2 = new Batallon();
 
 	}
 
-	public void cargarDatos() { 
+	public void cargarDatos() {
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Harry Potter", TiposPersonaje.ESTUDIANTE));
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Faul Loger", TiposPersonaje.AUROR));
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Snape", TiposPersonaje.PROFESOR));
-		
-		Batallon batallon_3= new Batallon();
+
+		Batallon batallon_3 = new Batallon();
 		batallon_3.agregarCombatiente(FactoryPersonaje.crearPersonaje("GLORO!!!", TiposPersonaje.PROFESOR));
 		batallon_1.agregarCombatiente(batallon_3);
-		
-		
+
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 1", TiposPersonaje.SEGUIDOR));
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 2", TiposPersonaje.SEGUIDOR));
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Voldemort", TiposPersonaje.COMANDANTE));
@@ -39,11 +38,11 @@ public class Juego {
 		batallon_2.cargarPersonajesVivos();
 		personajes_vivos_2 = batallon_2.obtenerListaPersonajesVivos();
 	}
-	
-	public void cargarDatos(Batallon batallon1,Batallon batallon2) { 
-		batallon_1=batallon1;
-		batallon_2=batallon2;
-		
+
+	public void cargarDatos(Batallon batallon1, Batallon batallon2) {
+		batallon_1 = batallon1;
+		batallon_2 = batallon2;
+
 		batallon_1.imprimirInfo();
 		batallon_2.imprimirInfo();
 
@@ -54,8 +53,6 @@ public class Juego {
 		personajes_vivos_2 = batallon_2.obtenerListaPersonajesVivos();
 	}
 
-
-	
 	public void jugar() {
 		Personaje personajeActual;
 		while (!this.estaTerminado()) {

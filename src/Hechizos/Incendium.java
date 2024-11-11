@@ -1,6 +1,5 @@
 package Hechizos;
 
-
 import Efectos.Quemado;
 import Unidades.Personaje;
 import logger.Logger;
@@ -23,11 +22,11 @@ public class Incendium extends HechizoBase {
 
 	@Override
 	public void ejecutar() {
-		if(objetivo.equals(lanzador)) {
+		if (objetivo.equals(lanzador)) {
 			Logger.agregarMensaje("No puede lanzarse ese hechizo a si mismo");
 			return;
 		}
-		
+
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
 		lanzador.gastarMana(costeMana);
 
