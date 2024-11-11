@@ -39,6 +39,20 @@ public class Juego {
 		batallon_2.cargarPersonajesVivos();
 		personajes_vivos_2 = batallon_2.obtenerListaPersonajesVivos();
 	}
+	
+	public void cargarDatos(Batallon batallon1,Batallon batallon2) { 
+		batallon_1=batallon1;
+		batallon_2=batallon2;
+		
+		batallon_1.imprimirInfo();
+		batallon_2.imprimirInfo();
+
+		batallon_1.cargarPersonajesVivos();
+		personajes_vivos_1 = batallon_1.obtenerListaPersonajesVivos();
+
+		batallon_2.cargarPersonajesVivos();
+		personajes_vivos_2 = batallon_2.obtenerListaPersonajesVivos();
+	}
 
 
 	
