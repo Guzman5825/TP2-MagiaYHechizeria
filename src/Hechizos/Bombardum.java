@@ -38,9 +38,12 @@ public class Bombardum extends HechizoBase {
 		if (lanzador.tieneEfecto(Potenciado.class))
 			dañoBase *= 2;
 
+		int dañoBasePorUnidad;
 		for (Personaje objetivo : objetivos) {
 			Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + "a " + objetivo);
-
+			
+			dañoBasePorUnidad=dañoBase;
+			
 			if (objetivo.tieneEfecto(Agilizado.class)) {
 				Logger.agregarMensaje(objetivo + " estaba Agilizado y con su suerte evito el ataque");
 				continue;
@@ -48,11 +51,11 @@ public class Bombardum extends HechizoBase {
 
 			if (objetivo.tieneEfecto(Protegido.class)) {
 				Logger.agregarMensaje(objetivo + " estaba Protegido se reduce el daño a un tercio");
-				dañoBase /= 3;
+				dañoBasePorUnidad /= 3;
 			}
 
-			objetivo.recibirDaño(dañoBase);
-			Logger.agregarMensaje(objetivo + " ha recibido " + dañoBase + " de daño");
+			objetivo.recibirDaño(dañoBasePorUnidad);
+			Logger.agregarMensaje(objetivo + " ha recibido " + dañoBasePorUnidad + " de daño");
 		}
 
 	}
