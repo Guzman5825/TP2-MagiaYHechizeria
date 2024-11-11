@@ -17,7 +17,6 @@ public abstract class Personaje implements Combatiente {
 	protected Accion accion;
 	protected List<String> consumibles;
 
-	// Constructor
 	protected Personaje(String nombre, int vida, int mana, String clase, String rango) {
 		this.nombre = nombre;
 		this.clase = clase;
@@ -52,7 +51,7 @@ public abstract class Personaje implements Combatiente {
 	}
 
 	public boolean puedePelear() {
-		if (estaMuerto() || tieneEfecto(Petrificado.class)) /// implementar otras funciones
+		if (estaMuerto() || tieneEfecto(Petrificado.class)) 
 			return false;
 		return true;
 	}
@@ -75,7 +74,7 @@ public abstract class Personaje implements Combatiente {
 
 	public boolean tieneConsumible(String objeto) {
 		for (String objetoActual : consumibles)
-			if (objetoActual.equalsIgnoreCase(objeto)) /// modificar despúes si es asi
+			if (objetoActual.equalsIgnoreCase(objeto))
 				return true;
 		return false;
 	}
