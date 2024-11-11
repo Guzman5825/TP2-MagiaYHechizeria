@@ -25,7 +25,6 @@ public class Protego extends HechizoBase {
 	Protego(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int costeMana, int turnos) {
 		this.nombre = "Protego";
 		this.lanzador = lanzador;
-		// this.objetivos = objetivos;
 		this.dañoBase = dañoBase;
 		this.costeMana = costeMana;
 		this.turnos = turnos;
