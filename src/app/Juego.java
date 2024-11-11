@@ -9,13 +9,13 @@ public class Juego {
 	private Batallon batallon_1, batallon_2;
 	List<Personaje> personajes_vivos_1, personajes_vivos_2;
 
-	public Juego() { /// agrego las variable
+	public Juego() { 
 		batallon_1 = new Batallon();
 		batallon_2 = new Batallon();
 
 	}
 
-	public void cargarDatos() { /// aca se da todos los datos que necesitamos
+	public void cargarDatos() { 
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Harry Potter", TiposPersonaje.ESTUDIANTE));
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Faul Loger", TiposPersonaje.AUROR));
 		batallon_1.agregarCombatiente(FactoryPersonaje.crearPersonaje("Snape", TiposPersonaje.PROFESOR));
@@ -29,7 +29,6 @@ public class Juego {
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Seguidor 2", TiposPersonaje.SEGUIDOR));
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("Voldemort", TiposPersonaje.COMANDANTE));
 		batallon_2.agregarCombatiente(FactoryPersonaje.crearPersonaje("El Inmobrable", TiposPersonaje.MAGOOSCURO));
-		/////////////////// para arriba se carga los enemigos
 
 		batallon_1.imprimirInfo();
 		batallon_2.imprimirInfo();
