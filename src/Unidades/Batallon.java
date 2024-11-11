@@ -51,7 +51,6 @@ public class Batallon implements Combatiente {
 		return personajes;
 	}
 
-//	Metodos de la interfaz Combatiente
 	public void luchar(Combatiente enemigo) {
 		// implementar
 	}
@@ -61,7 +60,7 @@ public class Batallon implements Combatiente {
 		return true;
 	}
 
-	public void imprimirInfo() { /// esto es para ver como esta internamete da la info
+	public void imprimirInfo() {
 		Logger.agregarMensaje("------BATALLON------");
 		for (Combatiente c : combatientes)
 			c.imprimirInfo();
@@ -72,7 +71,6 @@ public class Batallon implements Combatiente {
 		return this.personajesVivos;
 	}
 
-	//////////////////// aca van las funciones que ayudan para
 
 	public Personaje obtenerPersonajeMenorVida() {
 		Personaje personajeMenorVida = null;
@@ -206,18 +204,6 @@ public class Batallon implements Combatiente {
 				i++;
 			}
 		}
-		
-		
-		
-		/*
-		personajesVivos.removeIf(personaje -> {
-			if (personaje.estaMuerto()) {
-				///aca hay que pensar en el indice
-				Logger.agregarMensaje(personaje + " se fue de sabático!!!!!");
-				return true;
-			}
-			return false;
-		});*/
 	}
 
 	public boolean batallonDerrotado() {
