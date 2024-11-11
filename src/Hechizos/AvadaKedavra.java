@@ -14,18 +14,10 @@ public class AvadaKedavra extends HechizoBase {
 		this.nombre = "AvadaKedavra";
 		this.lanzador = lanzador;
 		this.objetivo = objetivo;
-		this.dañoBase = 1000; // esto es instakill
+		this.dañoBase = 1000; 
 		this.costeMana = 80;
 		this.descripcion = "Hechizo potente y costoso, solo lo pueden usar comandantes.";
 	}
-
-	/*
-	 * AvadaKedavra(Personaje lanzador, List<Personaje> objetivos, int dañoBase, int
-	 * costeMana){ this.nombre = "AvadaKedavra"; this.lanzador = lanzador;
-	 * this.objetivo = objetivos; this.dañoBase = dañoBase; this.costeMana =
-	 * costeMana; this.descripcion =
-	 * "Hechizo potente y costoso, solo lo pueden usar comandantes."; }
-	 */
 
 	@Override
 	public void ejecutar() {
@@ -35,7 +27,7 @@ public class AvadaKedavra extends HechizoBase {
 		}
 		
 		Logger.agregarMensaje(lanzador + " ha realizado el hechizo " + nombre + " a " + objetivo);
-		lanzador.gastarMana(costeMana); /// ejecutar mana puede estar por fuera de esta funcion
+		lanzador.gastarMana(costeMana); 
 
 		if (objetivo.tieneEfecto(Agilizado.class)) {
 			Logger.agregarMensaje(objetivo + " estaba Agilizado y con su suerte evito el ataque");
