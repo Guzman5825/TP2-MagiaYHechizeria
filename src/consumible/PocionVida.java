@@ -12,7 +12,7 @@ public class PocionVida extends Consumible {
 	@Override
 	public void activarConsumible() {
 		int vidaArecargar = 100;
-		Logger.agregarMensaje(personaje + " +100HP");
+		Logger.agregarMensaje(personaje + " uso pocion de vida +100HP");
 		personaje.ganarVida(vidaArecargar);
 	}
 

@@ -12,7 +12,7 @@ public class PocionMana extends Consumible {
 	@Override
 	public void activarConsumible() {
 		int manaArecargar = 100;
-		Logger.agregarMensaje(personaje + " +100MP");
+		Logger.agregarMensaje(personaje + " uso pocion de mana +100MP");
 		personaje.ganarMana(manaArecargar);
 	}
 
