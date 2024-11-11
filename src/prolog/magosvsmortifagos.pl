@@ -15,15 +15,6 @@ puede_lanzar(Hechizo, ManaPersonaje) :-
     hechizo(Hechizo, CosteMana),
     ManaPersonaje >= CosteMana.
 
-%lista_hechizos_lanzables/3: en basa al mana del personaje, devuelve una lista con los hechizos lanzables
-lista_hechizos_lanzables(ManaPersonaje, Hechizos) :-
-	findall(Hechizo, puede_lanzar(Hechizo, ManaPersonaje), Hechizos).
 
-% personaje_derrotable/3: Dado un ataque y una lista de enemigos, devuelve los enemigos derrotables.
-personaje_derrotable(AtaquePersonaje, ListaEnemigos, EnemigosDerrotables) :-
-    findall(NombreEnemigo, (
-        member((NombreEnemigo, VidaActual), ListaEnemigos),
-        AtaquePersonaje >= VidaActual
-    ), EnemigosDerrotables).
 
 
